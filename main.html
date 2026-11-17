@@ -1,0 +1,4257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kofi Kai Barista Academy - Học Pha Chế Chuẩn Thi Thực Hành</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FFFDF9;
+      --bg-latte: #FAF3E8;
+      --espresso: #4A3222;
+      --caramel: #C68B59;
+      --pastel-pink: #FDE8E8;
+      --pastel-mint: #E6F4EA;
+      --pastel-sky: #E0F2FE;
+      --pastel-amber: #FEF3C7;
+      --pastel-lavender: #F3E8FF;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--espresso);
+      background-image:
+        radial-gradient(#F3E5D0 1px, transparent 1px),
+        radial-gradient(#F8ECE0 1px, #FFFDF9 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF3E8;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D7B89C;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B8906E;
+    }
+
+    /* Cute Animations */
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes shakeCup {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-10deg) scale(1.04); }
+      40% { transform: rotate(10deg) scale(1.04); }
+      60% { transform: rotate(-8deg) scale(1.03); }
+      80% { transform: rotate(8deg) scale(1.03); }
+    }
+    @keyframes swirlLiquid {
+      0% { transform: scaleX(1); }
+      50% { transform: scaleX(0.92) skewX(3deg); }
+      100% { transform: scaleX(1); }
+    }
+    @keyframes blendSpin {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-3px) rotate(-2deg); }
+      50% { transform: translateY(2px) rotate(2deg); }
+      75% { transform: translateY(-2px) rotate(-1deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes steamRise {
+      0% { opacity: 0.7; transform: translateY(0) scale(0.9); }
+      100% { opacity: 0; transform: translateY(-18px) scale(1.2); }
+    }
+
+    .animate-float { animation: floatSoft 3s ease-in-out infinite; }
+    .animate-shake-cup { animation: shakeCup 0.6s ease-in-out; }
+    .animate-swirl { animation: swirlLiquid 0.5s ease-in-out; }
+    .animate-blend { animation: blendSpin 0.4s ease-in-out 2; }
+    .animate-pop { animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .steam-1 { animation: steamRise 2.2s infinite ease-out; }
+    .steam-2 { animation: steamRise 2.2s infinite ease-out 0.7s; }
+
+    /* Flashcard 3D Flip */
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1); }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .flipped .transform-style-3d { transform: rotateY(180deg); }
+
+    /* Tactile Pastel Buttons */
+    .btn-pastel {
+      transition: all 0.15s ease;
+      box-shadow: 0 3px 0 rgba(74, 50, 34, 0.14);
+    }
+    .btn-pastel:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 rgba(74, 50, 34, 0.18);
+    }
+    .btn-pastel:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 rgba(74, 50, 34, 0.14);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- TOP NAVIGATION & DASHBOARD HEADER -->
+  <header class="sticky top-0 z-30 bg-[#FFFDF9]/95 backdrop-blur-md border-b-2 border-[#EFE2D3] px-3 sm:px-6 py-2.5 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#FDE68A] to-[#F59E0B] flex items-center justify-center text-xl shadow-sm border border-[#FBBF24]">
+          ☕
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-display font-bold text-base sm:text-lg text-[#4A3222] leading-tight">Kofi Kai Barista</h1>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E0F2FE] text-[#0369A1]">2025–2026</span>
+          </div>
+          <p class="text-xs text-[#8C6D53] hidden sm:block">Học thuộc công thức • Luyện thi thực hành</p>
+        </div>
+      </div>
+
+      <!-- XP, Level & Quick Stats -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+        <!-- Level & XP Pill -->
+        <div class="bg-[#FAF3E8] border border-[#E6D5C3] rounded-2xl px-3 py-1.5 flex items-center gap-2">
+          <span class="text-base">🏅</span>
+          <div>
+            <div class="flex items-center gap-1.5 text-xs font-bold">
+              <span id="ui-level-title" class="text-[#7C4A27]">Tập Sự Quầy Bar</span>
+              <span class="text-[#A88B73]">•</span>
+              <span id="ui-xp-text" class="text-[#B45309]">0 XP</span>
+            </div>
+            <div class="w-24 sm:w-32 h-1.5 bg-[#E6D5C3] rounded-full overflow-hidden mt-0.5">
+              <div id="ui-xp-bar" class="h-full bg-gradient-to-r from-[#F59E0B] to-[#EC4899] rounded-full transition-all duration-500" style="width: 10%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard & Achievements Buttons -->
+        <button onclick="openModal('modal-dashboard')" class="btn-pastel bg-[#E6F4EA] hover:bg-[#D4EDDA] text-[#1E6B38] border border-[#B7DFC2] px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5">
+          <span>📊</span>
+          <span>Tiến độ (<span id="ui-mastered-badge">0</span>/<span id="ui-total-badge">0</span>)</span>
+        </button>
+
+        <button onclick="openModal('modal-achievements')" class="btn-pastel bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] border border-[#FCD34D] px-3 py-2 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-1.5">
+          <span>🏆</span>
+          <span class="hidden md:inline">Thành tích</span>
+          <span id="ui-ach-count" class="bg-white/80 px-1.5 py-0.2 rounded-full text-xs">0/8</span>
+        </button>
+
+        <button id="btn-sound" onclick="toggleSound()" class="btn-pastel bg-white hover:bg-[#FAF3E8] border border-[#E6D5C3] p-2 rounded-2xl text-sm" title="Bật/Tắt âm thanh">
+          🔊
+        </button>
+      </div>
+    </div>
+
+    <!-- 5 GAME MODES TABS -->
+    <nav class="max-w-7xl mx-auto mt-2.5 pt-2 border-t border-[#F3E8DC] flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1">
+      <button onclick="switchMode('study')" data-mode="study" class="mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all">
+        <span>📖</span> 1. Sổ Tay & Flashcard
+      </button>
+      <button onclick="switchMode('practice')" data-mode="practice" class="mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all">
+        <span>🧋</span> 2. Pha Chế Tự Do
+      </button>
+      <button onclick="switchMode('rush')" data-mode="rush" class="mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all">
+        <span>⚡</span> 3. Giờ Cao Điểm
+      </button>
+      <button onclick="switchMode('exam')" data-mode="exam" class="mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all">
+        <span>📝</span> 4. Kiểm Tra Thực Hành
+      </button>
+      <button onclick="switchMode('weak')" data-mode="weak" class="mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all">
+        <span>🎯</span> 5. Ôn Điểm Yếu <span id="ui-weak-pill" class="ml-1 bg-[#FEE2E2] text-[#B91C1C] px-1.5 py-0.2 rounded-full text-[11px]">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-4">
+
+    <!-- ========================================================= -->
+    <!-- MODE 1: HỌC CÔNG THỨC — SỔ TAY PHA CHẾ & FLASHCARD        -->
+    <!-- ========================================================= -->
+    <section id="view-study" class="mode-view space-y-4">
+      <!-- Top Controls: Search, Filter & Sub-view (Sổ tay vs Flashcard) -->
+      <div class="bg-white rounded-3xl p-4 border-2 border-[#EFE2D3] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btn-sub-notebook" onclick="setStudySubMode('notebook')" class="btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#4A3222] text-white">
+            📒 Sổ Tay Công Thức
+          </button>
+          <button id="btn-sub-flashcard" onclick="setStudySubMode('flashcard')" class="btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#FDE8E8] text-[#9D174D] border border-[#FBCFE8]">
+            🃏 Luyện Flashcard Chủ Động
+          </button>
+          <button onclick="openModal('modal-data-audit')" class="btn-pastel px-3 py-2 rounded-2xl text-xs font-bold bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D]">
+            ℹ️ Lưu ý dữ liệu gốc
+          </button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="relative flex-1 sm:w-56">
+            <input id="study-search" type="text" oninput="renderStudyView()" placeholder="Tìm tên món, nguyên liệu..." class="w-full pl-9 pr-3 py-2 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3] text-sm font-semibold focus:outline-none focus:border-[#C68B59]" />
+            <span class="absolute left-3 top-2.5 text-sm">🔍</span>
+          </div>
+          <select id="study-status-filter" onchange="renderStudyView()" class="px-3 py-2 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3] text-xs sm:text-sm font-bold focus:outline-none">
+            <option value="all">Tất cả trạng thái</option>
+            <option value="unlearned">⚪ Chưa học</option>
+            <option value="learning">🔵 Đang học</option>
+            <option value="review">🟠 Cần ôn tập</option>
+            <option value="mastered">🟢 Đã thành thạo</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Chips -->
+      <div id="study-categories" class="flex items-center gap-2 overflow-x-auto pb-1"></div>
+
+      <!-- SUB-VIEW A: NOTEBOOK SPLIT LAYOUT -->
+      <div id="study-notebook-panel" class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <!-- Menu List -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 sm:p-4 border-2 border-[#EFE2D3] shadow-sm max-h-[72vh] overflow-y-auto space-y-2" id="study-recipe-list">
+        </div>
+
+        <!-- Selected Recipe Details -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-4 sm:p-6 border-2 border-[#EFE2D3] shadow-sm" id="study-recipe-detail">
+        </div>
+      </div>
+
+      <!-- SUB-VIEW B: FLASHCARD ACTIVE RECALL -->
+      <div id="study-flashcard-panel" class="hidden max-w-2xl mx-auto space-y-4">
+        <div class="flex items-center justify-between bg-white px-4 py-3 rounded-2xl border border-[#EFE2D3]">
+          <span class="text-sm font-bold text-[#7C4A27]">Thẻ <span id="fc-index">1</span> / <span id="fc-total">0</span></span>
+          <div class="flex items-center gap-2">
+            <button onclick="prevFlashcard()" class="btn-pastel px-3 py-1.5 rounded-xl bg-[#FAF3E8] text-xs font-bold">⬅ Trước</button>
+            <button onclick="shuffleFlashcards()" class="btn-pastel px-3 py-1.5 rounded-xl bg-[#E0F2FE] text-[#0369A1] text-xs font-bold">🔀 Trộn thẻ</button>
+            <button onclick="nextFlashcard()" class="btn-pastel px-3 py-1.5 rounded-xl bg-[#FAF3E8] text-xs font-bold">Sau ➡</button>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card -->
+        <div id="flashcard-wrapper" onclick="flipFlashcard()" class="perspective-1000 cursor-pointer select-none">
+          <div class="transform-style-3d relative w-full min-h-[370px]">
+            <!-- Front -->
+            <div class="backface-hidden absolute inset-0 bg-gradient-to-br from-white via-[#FFF9F2] to-[#FDE8E8] rounded-3xl p-6 sm:p-8 border-2 border-[#F3D8C8] shadow-md flex flex-col items-center justify-center text-center">
+              <span id="fc-front-cat" class="px-3 py-1 rounded-full bg-white text-xs font-extrabold text-[#9D174D] border border-[#FBCFE8] mb-3">NHÓM MÓN</span>
+              <div id="fc-front-icon" class="text-6xl mb-4 animate-float">🧋</div>
+              <h3 id="fc-front-title" class="font-display font-extrabold text-2xl sm:text-3xl text-[#4A3222] mb-2">Tên Món</h3>
+              <p id="fc-front-variant" class="text-sm font-bold text-[#8C6D53] mb-4">Biến thể / Size</p>
+              <div id="fc-front-status" class="mb-4"></div>
+              <p class="text-xs font-bold text-[#B45309] bg-[#FEF3C7] px-4 py-2 rounded-full">👆 Nhấn vào thẻ để lật xem công thức</p>
+            </div>
+
+            <!-- Back -->
+            <div class="backface-hidden rotate-y-180 absolute inset-0 bg-white rounded-3xl p-5 sm:p-6 border-2 border-[#C68B59] shadow-md overflow-y-auto">
+              <div class="flex items-center justify-between border-b border-[#EFE2D3] pb-2 mb-3">
+                <h4 id="fc-back-title" class="font-display font-extrabold text-lg text-[#4A3222]">Công thức chuẩn</h4>
+                <span class="text-xs font-bold text-[#8C6D53]">👆 Nhấn để úp lại</span>
+              </div>
+              <div id="fc-back-content" class="space-y-3 text-sm"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self-Rating Buttons -->
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="rateFlashcard(false)" class="btn-pastel py-3.5 px-4 rounded-2xl bg-[#FEE2E2] hover:bg-[#FECACA] text-[#991B1B] border border-[#FCA5A5] font-extrabold text-sm flex items-center justify-center gap-2">
+            <span>🤔</span> Chưa nhớ (Đưa vào ôn tập)
+          </button>
+          <button onclick="rateFlashcard(true)" class="btn-pastel py-3.5 px-4 rounded-2xl bg-[#DCFCE7] hover:bg-[#BBF7D0] text-[#166534] border border-[#86EFAC] font-extrabold text-sm flex items-center justify-center gap-2">
+            <span>🌟</span> Đã nhớ rõ công thức!
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SHARED BARISTA WORKSTATION (MODES 2, 3, 4, 5)             -->
+    <!-- ========================================================= -->
+    <section id="view-station" class="mode-view hidden space-y-4">
+
+      <!-- Mode-Specific Top Banner (Rush Hour Timer / Exam Progress / Practice Info) -->
+      <div id="station-banner" class="bg-white rounded-3xl p-3.5 sm:p-4 border-2 border-[#EFE2D3] shadow-sm flex flex-wrap items-center justify-between gap-3">
+      </div>
+
+      <!-- EXAM SETUP SCREEN (Only visible when configuring Exam Mode) -->
+      <div id="exam-setup-panel" class="hidden max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#EFE2D3] shadow-md space-y-5 animate-pop">
+        <div class="text-center space-y-2">
+          <div class="w-16 h-16 mx-auto rounded-3xl bg-[#F3E8FF] text-3xl flex items-center justify-center border border-[#D8B4FE]">📝</div>
+          <h2 class="font-display font-extrabold text-2xl text-[#4A3222]">Kiểm Tra Thực Hành Pha Chế</h2>
+          <p class="text-sm text-[#7C5D43]">Mô phỏng bài kiểm tra chính thức: Không công thức, không gợi ý, chấm điểm tự động trên thang 100.</p>
+        </div>
+
+        <div class="bg-[#FAF3E8] rounded-2xl p-4 border border-[#E6D5C3] text-xs sm:text-sm space-y-1.5">
+          <div class="font-extrabold text-[#4A3222]">📏 Quy tắc chấm điểm chuẩn Kofi Kai:</div>
+          <ul class="list-disc pl-5 text-[#6E5038] space-y-1">
+            <li><strong>40% Nguyên liệu:</strong> Chọn đúng và đủ nguyên liệu có trong công thức (trừ điểm nếu thiếu hoặc thừa).</li>
+            <li><strong>40% Định lượng:</strong> Nhập chính xác con số và đơn vị đo (ml, gr, viên, trái, gói...).</li>
+            <li><strong>20% Quy trình & Thứ tự:</strong> Đúng thao tác pha chế (chỉ bắt buộc thứ tự với các món tài liệu quy định phân tầng/trình tự rõ ràng; các món lắc chung sẽ tự động linh hoạt).</li>
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-[#7C5D43] mb-1.5">Số lượng món kiểm tra</label>
+            <select id="exam-count" class="w-full p-3 rounded-2xl bg-[#FFFDF9] border-2 border-[#E6D5C3] font-bold text-sm">
+              <option value="5">5 món (Thi nhanh 5 phút)</option>
+              <option value="10" selected>10 món (Đề thi tiêu chuẩn)</option>
+              <option value="15">15 món (Đề thi nâng cao)</option>
+              <option value="all">Toàn bộ menu (Tổng kiểm tra)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-[#7C5D43] mb-1.5">Phạm vi nhóm món</label>
+            <select id="exam-category" class="w-full p-3 rounded-2xl bg-[#FFFDF9] border-2 border-[#E6D5C3] font-bold text-sm">
+              <option value="all">Ngẫu nhiên toàn bộ menu</option>
+              <option value="Cà phê">Nhóm Cà Phê</option>
+              <option value="Đặc biệt">Nhóm Đặc Biệt</option>
+              <option value="Trà sữa">Nhóm Trà Sữa</option>
+              <option value="Trà giải nhiệt">Nhóm Trà Giải Nhiệt</option>
+              <option value="Cold Brew">Nhóm Cold Brew</option>
+              <option value="Sữa chua">Nhóm Sữa Chua</option>
+              <option value="Đá xay">Nhóm Đá Xay</option>
+              <option value="Thức uống khác & Mới">Thức uống khác & Món mới</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="startExam()" class="btn-pastel w-full py-4 rounded-2xl bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-display font-extrabold text-base sm:text-lg shadow-md">
+          🚀 Bắt Đầu Làm Bài Kiểm Tra
+        </button>
+      </div>
+
+      <!-- EXAM FINAL REPORT SCREEN -->
+      <div id="exam-report-panel" class="hidden bg-white rounded-3xl p-5 sm:p-8 border-2 border-[#EFE2D3] shadow-md space-y-6 animate-pop">
+      </div>
+
+      <!-- BARISTA COUNTER WORKSPACE (Customer + Cup Visual + Ingredient Shelf + Steps) -->
+      <div id="barista-workspace" class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+
+        <!-- LEFT COLUMN (4 cols): Customer Order Ticket + Animated Drink Visual + Progressive Hint -->
+        <div class="lg:col-span-4 space-y-4">
+          <!-- Cute Customer Card -->
+          <div class="bg-gradient-to-br from-[#FFF9F2] to-[#FDE8E8] rounded-3xl p-4 border-2 border-[#F5D0C5] shadow-sm relative overflow-hidden">
+            <div class="flex items-start gap-3">
+              <div id="customer-avatar" class="w-14 h-14 rounded-2xl bg-white border-2 border-[#FBCFE8] flex items-center justify-center text-3xl shrink-0 shadow-sm animate-float">
+                👧
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-1">
+                  <span id="customer-name" class="text-xs font-extrabold text-[#9D174D] uppercase tracking-wide">Khách hàng dễ thương</span>
+                  <span id="order-cat-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-white/90 text-[#6E5038]">Cà phê</span>
+                </div>
+                <div class="mt-1 bg-white rounded-2xl p-3 border border-[#FBCFE8] shadow-xs">
+                  <p class="text-xs text-[#8C6D53] font-semibold">“Cho mình gọi 1 ly...”</p>
+                  <h2 id="order-drink-name" class="font-display font-extrabold text-lg sm:text-xl text-[#4A3222] leading-snug mt-0.5">
+                    Cà phê sữa pha máy (Size M)
+                  </h2>
+                  <p id="order-drink-sub" class="text-xs font-bold text-[#B45309] mt-1">Size M • Dụng cụ: Ly thủy tinh 248ml</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progressive Hint Box (Hidden in Exam Mode) -->
+            <div id="hint-section" class="mt-3 pt-3 border-t border-[#F5D0C5]/70">
+              <div class="flex items-center justify-between gap-2">
+                <button id="btn-hint" onclick="requestHint()" class="btn-pastel bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] border border-[#FCD34D] px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5">
+                  <span>💡</span> Gợi ý (<span id="hint-level-label">0/3</span>)
+                </button>
+                <span class="text-[11px] text-[#8C6D53] italic">Mở dần từng mức nếu quên</span>
+              </div>
+              <div id="hint-display" class="hidden mt-2 bg-white/95 rounded-2xl p-3 border border-[#FCD34D] text-xs space-y-1 text-[#4A3222]">
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Barista Cup / Shaker / Blender -->
+          <div class="bg-white rounded-3xl p-4 border-2 border-[#EFE2D3] shadow-sm flex flex-col items-center">
+            <div class="w-full flex items-center justify-between mb-2">
+              <span class="text-xs font-extrabold uppercase text-[#8C6D53]">Quầy Pha Chế Trực Quan</span>
+              <span id="cup-status-badge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FAF3E8] text-[#7C4A27]">Chưa có nguyên liệu</span>
+            </div>
+
+            <!-- SVG Animated Cup -->
+            <div id="cup-visual-container" class="relative w-44 h-48 flex items-center justify-center my-1">
+              <svg viewBox="0 0 160 180" class="w-full h-full overflow-visible">
+                <!-- Steam for hot drinks -->
+                <path class="steam-1" d="M62 24 Q58 14 64 6" stroke="#D7B89C" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path class="steam-2" d="M92 22 Q96 12 90 4" stroke="#D7B89C" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- Cup Body Clip -->
+                <defs>
+                  <clipPath id="cupClip">
+                    <path d="M36 42 L124 42 L114 156 Q113 166 102 166 L58 166 Q47 166 46 156 Z" />
+                  </clipPath>
+                </defs>
+                <!-- Cup Background -->
+                <path d="M36 42 L124 42 L114 156 Q113 166 102 166 L58 166 Q47 166 46 156 Z" fill="#FAF3E8" stroke="#C68B59" stroke-width="3.5"/>
+                <!-- Dynamic Liquid Layers -->
+                <g id="svg-liquid-layers" clip-path="url(#cupClip)"></g>
+                <!-- Glass Highlight -->
+                <path d="M46 50 L52 152" stroke="rgba(255,255,255,0.65)" stroke-width="4" stroke-linecap="round"/>
+                <!-- Straw -->
+                <rect x="96" y="14" width="7" height="125" rx="3.5" transform="rotate(12 96 14)" fill="#F472B6" opacity="0.85"/>
+                <!-- Cup Rim -->
+                <ellipse cx="80" cy="42" rx="45" ry="6" fill="#FFFDF9" stroke="#C68B59" stroke-width="3"/>
+                <!-- Kofi Kai cute badge on cup -->
+                <circle cx="80" cy="105" r="14" fill="rgba(255,255,255,0.85)"/>
+                <text x="80" y="109" text-anchor="middle" font-size="13">🌱</text>
+              </svg>
+            </div>
+
+            <!-- Quick Barista Action Buttons (Visual & Process Steps) -->
+            <div class="w-full mt-2">
+              <p class="text-[11px] font-extrabold text-[#7C5D43] uppercase mb-1.5">Thao tác dụng cụ & quy trình (Nhấn theo thứ tự):</p>
+              <div id="action-buttons-grid" class="grid grid-cols-2 gap-1.5">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDDLE COLUMN (4 cols): Ingredient Shelf -->
+        <div class="lg:col-span-4 bg-white rounded-3xl p-4 border-2 border-[#EFE2D3] shadow-sm flex flex-col max-h-[82vh]">
+          <div class="flex items-center justify-between gap-2 mb-2.5">
+            <h3 class="font-display font-extrabold text-base text-[#4A3222] flex items-center gap-1.5">
+              <span> shelves </span> Kệ Nguyên Liệu
+            </h3>
+            <span class="text-[11px] font-bold text-[#8C6D53]">Bấm để chọn & đong</span>
+          </div>
+
+          <!-- Search & Filter Shelf -->
+          <div class="space-y-2 mb-3">
+            <input id="shelf-search" type="text" oninput="renderIngredientShelf()" placeholder="Tìm nhanh nguyên liệu (vd: sữa đặc, trà lài...)" class="w-full px-3 py-2 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3] text-xs font-bold focus:outline-none focus:border-[#C68B59]" />
+            <div id="shelf-cats" class="flex items-center gap-1 overflow-x-auto pb-1"></div>
+          </div>
+
+          <!-- Ingredient Items Grid -->
+          <div id="ingredient-shelf-grid" class="flex-1 overflow-y-auto grid grid-cols-2 gap-2 pr-1">
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (4 cols): Current Cup Tray (Selected Ingredients + Steps) & Submit -->
+        <div class="lg:col-span-4 bg-white rounded-3xl p-4 border-2 border-[#EFE2D3] shadow-sm flex flex-col justify-between max-h-[82vh]">
+          <div class="flex-1 overflow-y-auto space-y-4 pr-1">
+            <!-- Selected Ingredients List -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display font-extrabold text-base text-[#4A3222]">🥤 Nguyên liệu đã cho vào (<span id="selected-ing-count">0</span>)</h3>
+                <button onclick="clearCurrentDrink()" class="text-xs font-bold text-[#DC2626] hover:underline">Làm lại ly</button>
+              </div>
+              <div id="selected-ingredients-list" class="space-y-2">
+                <div class="text-center py-6 px-3 rounded-2xl bg-[#FAF3E8]/70 border border-dashed border-[#D7B89C] text-xs text-[#8C6D53]">
+                  Chưa có nguyên liệu nào. Hãy chọn nguyên liệu trên kệ và nhập đúng định lượng!
+                </div>
+              </div>
+            </div>
+
+            <!-- Selected Steps Sequence -->
+            <div class="pt-3 border-t border-[#EFE2D3]">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display font-extrabold text-sm text-[#4A3222]">⚙️ Thứ tự thao tác đã làm (<span id="selected-step-count">0</span>)</h3>
+                <button onclick="clearStepsOnly()" class="text-[11px] font-bold text-[#8C6D53] hover:text-[#DC2626]">Xóa thao tác</button>
+              </div>
+              <div id="selected-steps-list" class="space-y-1.5">
+                <p class="text-xs text-[#8C6D53] italic">Bấm các nút thao tác dưới ly nước theo trình tự pha chế.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Order Button -->
+          <div class="pt-3 mt-3 border-t-2 border-[#EFE2D3]">
+            <button id="btn-submit-drink" onclick="submitCurrentDrink()" class="btn-pastel w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#10B981] to-[#059669] hover:from-[#059669] hover:to-[#047857] text-white font-display font-extrabold text-base flex items-center justify-center gap-2 shadow-md">
+              <span>🛎️</span> <span id="btn-submit-label">Hoàn Thành Món & Phục Vụ</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MODE 5: ÔN TẬP ĐIỂM YẾU                                   -->
+    <!-- ========================================================= -->
+    <section id="view-weak" class="mode-view hidden space-y-4">
+      <div class="bg-gradient-to-r from-[#FEF2F2] via-[#FFF7ED] to-[#FEF3C7] rounded-3xl p-5 sm:p-6 border-2 border-[#FED7AA] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#9A3412] flex items-center gap-2">
+            <span>🎯</span> Trung Tâm Ôn Tập Điểm Yếu
+          </h2>
+          <p class="text-xs sm:text-sm text-[#7C2D12] mt-1">
+            Tự động tổng hợp các món bạn hay làm sai, nguyên liệu dễ quên, định lượng hay nhầm và món chưa luyện tập.
+          </p>
+        </div>
+        <button onclick="startWeakDrill()" class="btn-pastel shrink-0 px-5 py-3.5 rounded-2xl bg-[#EA580C] hover:bg-[#C2410C] text-white font-display font-extrabold text-sm sm:text-base flex items-center gap-2">
+          <span>🔥</span> Luyện Lại Tất Cả Món Sai / Cần Ôn
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Weak Drinks -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border-2 border-[#EFE2D3] shadow-sm">
+          <h3 class="font-display font-extrabold text-base text-[#B91C1C] mb-3 flex items-center gap-2">
+            <span>❌</span> Món thường làm sai / Cần ôn (<span id="weak-drinks-count">0</span>)
+          </h3>
+          <div id="weak-drinks-list" class="space-y-2 max-h-72 overflow-y-auto"></div>
+        </div>
+
+        <!-- Frequently Missed Ingredients & Quantities -->
+        <div class="bg-white rounded-3xl p-4 sm:p-5 border-2 border-[#EFE2D3] shadow-sm space-y-4">
+          <div>
+            <h3 class="font-display font-extrabold text-base text-[#B45309] mb-2 flex items-center gap-2">
+              <span>🧩</span> Nguyên liệu hay quên nhất
+            </h3>
+            <div id="weak-ingredients-list" class="flex flex-wrap gap-1.5"></div>
+          </div>
+          <div class="pt-3 border-t border-[#EFE2D3]">
+            <h3 class="font-display font-extrabold text-base text-[#7C3AED] mb-2 flex items-center gap-2">
+              <span>⚖️</span> Định lượng thường nhầm lẫn
+            </h3>
+            <div id="weak-quantities-list" class="space-y-1.5 max-h-40 overflow-y-auto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unpracticed Drinks -->
+      <div class="bg-white rounded-3xl p-4 sm:p-5 border-2 border-[#EFE2D3] shadow-sm">
+        <h3 class="font-display font-extrabold text-base text-[#0369A1] mb-3 flex items-center gap-2">
+          <span>🆕</span> Các món chưa từng luyện pha chế (<span id="unpracticed-count">0</span>)
+        </h3>
+        <div id="unpracticed-drinks-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-64 overflow-y-auto"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- MODALS (GRADING RESULT / DASHBOARD / ACHIEVEMENTS / AUDIT) -->
+  <!-- ========================================================= -->
+
+  <!-- Modal: Grading Feedback (Practice & Rush Hour) -->
+  <div id="modal-feedback" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-6 border-2 border-[#EFE2D3] shadow-2xl animate-pop space-y-4">
+      <div id="feedback-content"></div>
+      <div class="flex flex-wrap items-center justify-end gap-2 pt-3 border-t border-[#EFE2D3]">
+        <button id="btn-retry-same" onclick="retrySameDrink()" class="btn-pastel px-4 py-2.5 rounded-2xl bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D] font-extrabold text-sm">
+          🔄 Pha lại món này
+        </button>
+        <button onclick="closeFeedbackAndNext()" class="btn-pastel px-5 py-2.5 rounded-2xl bg-[#4A3222] text-white font-extrabold text-sm">
+          Khách tiếp theo ➡
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Study Progress Dashboard -->
+  <div id="modal-dashboard" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-6 border-2 border-[#EFE2D3] shadow-2xl animate-pop space-y-5">
+      <div class="flex items-center justify-between border-b border-[#EFE2D3] pb-3">
+        <h2 class="font-display font-extrabold text-xl text-[#4A3222] flex items-center gap-2">
+          <span>📊</span> Bảng Theo Dõi Tiến Độ Học Tập
+        </h2>
+        <button onclick="closeModal('modal-dashboard')" class="w-8 h-8 rounded-full bg-[#FAF3E8] font-bold">✕</button>
+      </div>
+
+      <!-- 6 Key Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="dashboard-stats-grid"></div>
+
+      <!-- Category Mastery Breakdown -->
+      <div>
+        <h3 class="font-display font-extrabold text-sm uppercase text-[#7C5D43] mb-2">Tiến độ thuộc bài theo từng nhóm menu</h3>
+        <div id="dashboard-category-bars" class="space-y-2.5"></div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#EFE2D3]">
+        <button onclick="confirmResetProgress()" class="text-xs font-bold text-[#DC2626] hover:underline">
+          🗑️ Đặt lại toàn bộ tiến độ học tập
+        </button>
+        <button onclick="closeModal('modal-dashboard')" class="btn-pastel px-5 py-2 rounded-2xl bg-[#4A3222] text-white font-bold text-sm">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Achievements -->
+  <div id="modal-achievements" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-6 border-2 border-[#EFE2D3] shadow-2xl animate-pop space-y-4">
+      <div class="flex items-center justify-between border-b border-[#EFE2D3] pb-3">
+        <h2 class="font-display font-extrabold text-xl text-[#4A3222]">🏆 Thành Tích & Huy Hiệu Barista</h2>
+        <button onclick="closeModal('modal-achievements')" class="w-8 h-8 rounded-full bg-[#FAF3E8] font-bold">✕</button>
+      </div>
+      <div id="achievements-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Data Audit / Ambiguities from Source File -->
+  <div id="modal-data-audit" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-6 border-2 border-[#EFE2D3] shadow-2xl animate-pop space-y-4">
+      <div class="flex items-center justify-between border-b border-[#EFE2D3] pb-3">
+        <h2 class="font-display font-extrabold text-lg text-[#4A3222]">ℹ️ Đối Chiếu Dữ Liệu Menu & Tài Liệu Gốc</h2>
+        <button onclick="closeModal('modal-data-audit')" class="w-8 h-8 rounded-full bg-[#FAF3E8] font-bold">✕</button>
+      </div>
+      <div class="text-xs sm:text-sm space-y-3 text-[#5C4033]">
+        <p>Hệ thống đã trích xuất nguyên bản <strong>100% món trong Menu và toàn bộ slide công thức</strong> từ <code>KOFIKAI-CÔNG THỨC MENU-2025.pptx</code> mà không tự ý sửa đổi:</p>
+        <div class="bg-[#FEF3C7] p-3.5 rounded-2xl border border-[#FCD34D] space-y-2">
+          <div class="font-extrabold text-[#92400E]">Các điểm ghi chép đặc biệt trong tài liệu gốc cần nhớ khi thi:</div>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li><strong>Đơn vị đá <code>ml</code> thay vì <code>gr</code>:</strong> 3 món <em>Sữa tươi cafe</em>, <em>Bạc xỉu đá</em>, <em>Bạc xỉu đá sương sáo</em> trong bảng nguyên liệu gốc ghi đá là <code>150 ml</code> (các món khác ghi <code>150 gr</code> / <code>200 gr</code>).</li>
+            <li><strong>Món không ghi định lượng đá trong bảng:</strong> <em>Honey Orange Espresso</em>, <em>Trà trái cây nhiệt đới</em>, <em>Trà nho xanh</em>, <em>Sữa tươi đường nâu</em> có thao tác cho đá nhưng bảng nguyên liệu không ghi số gam đá (game không trừ điểm nếu bạn không nhập định lượng đá cho 4 món này).</li>
+            <li><strong>Cà phê đá & Cà phê sữa (Máy vs Phin):</strong> Trên menu ghi chung <em>Cà phê đá (M/L)</em> và <em>Cà phê sữa (M/L)</em>, trong slide tách thành 2 công thức riêng: <strong>Pha máy</strong> (18gr/36gr) và <strong>Pha phin</strong> (40ml/80ml). Cả 2 biến thể đều có mặt đầy đủ.</li>
+            <li><strong>Thức uống đóng chai/lon:</strong> <em>Sting, Redbull, Coca, Nước suối</em> có trên menu nhưng không có slide công thức pha chế riêng.</li>
+            <li><strong>Món bổ sung 2026 & Sơ chế nền:</strong> Các slide cuối file có thêm <em>Bơ già dừa non, Kem dừa, Kem sầu riêng, Kem socola, Latte Oreo, Phin đậu phộng, Phin phô mai</em> cùng 8 công thức sơ chế nền (ủ trà, đánh machiato/kem muối, nấu trân châu, sương sáo, khúc bạch, rau câu, nước đường).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Confirm Reset (Replaces window.confirm) -->
+  <div id="modal-confirm-reset" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 border-2 border-[#FCA5A5] shadow-2xl animate-pop space-y-4 text-center">
+      <div class="text-4xl">⚠️</div>
+      <h3 class="font-display font-extrabold text-lg text-[#991B1B]">Xóa toàn bộ tiến độ học tập?</h3>
+      <p class="text-xs sm:text-sm text-[#6E5038]">Toàn bộ điểm kinh nghiệm, lịch sử bài thi và danh sách món đã thuộc sẽ bị đặt lại về ban đầu.</p>
+      <div class="flex items-center justify-center gap-3 pt-2">
+        <button onclick="closeModal('modal-confirm-reset')" class="btn-pastel px-4 py-2 rounded-2xl bg-[#FAF3E8] font-bold text-sm">Hủy bỏ</button>
+        <button onclick="executeResetProgress()" class="btn-pastel px-4 py-2 rounded-2xl bg-[#DC2626] text-white font-bold text-sm">Đồng ý xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-box" class="fixed bottom-4 right-4 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <script>
+    /* =========================================================================
+       1. STRUCTURED RECIPE DATABASE (100% EXTRACTED FROM KOFIKAI DOCUMENTS)
+       ========================================================================= */
+    const RECIPES = [
+      // ==================== NHÓM 1: CÀ PHÊ ====================
+      {
+        id: 'cf_da_may_m',
+        name: 'Cà phê đá pha máy',
+        variant: 'Size M (Pha máy)',
+        category: 'Cà phê',
+        icon: '☕',
+        color: '#3E2723',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê máy', amount: 18, unit: 'gr' },
+          { name: 'Nước đường', amount: 10, unit: 'ml' },
+          { name: 'Đá bi', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay pha',
+          'Xả nước 3 giây sau đó lắp tay pha vào họng pha',
+          'Chiết suất café double espresso',
+          'Cho đường vào và khuấy nhẹ, cho đá vào đầy ly'
+        ],
+        requiredActions: ['extract_espresso', 'stir', 'add_ice'],
+        notes: 'Nhiệt độ máy 90° - 95°, áp suất 9 - 10 bar. Lớp crema dày và vàng đều, đi kèm muỗng, ống hút.'
+      },
+      {
+        id: 'cf_da_may_l',
+        name: 'Cà phê đá pha máy',
+        variant: 'Size L (Pha máy)',
+        category: 'Cà phê',
+        icon: '☕',
+        color: '#3E2723',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê máy', amount: 36, unit: 'gr' },
+          { name: 'Nước đường', amount: 20, unit: 'ml' },
+          { name: 'Đá bi', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 36gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay pha',
+          'Xả nước 3 giây sau đó lắp tay pha vào họng pha',
+          'Chiết suất café double espresso',
+          'Cho đường vào và khuấy nhẹ, cho đá vào đầy ly'
+        ],
+        requiredActions: ['extract_espresso', 'stir', 'add_ice'],
+        notes: 'Size L dùng 36gr cà phê máy, 20ml nước đường, 200gr đá bi.'
+      },
+      {
+        id: 'cf_da_phin_m',
+        name: 'Cà phê đá pha phin',
+        variant: 'Size M (Pha phin)',
+        category: 'Cà phê',
+        icon: '🖤',
+        color: '#2C1810',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê Phin', amount: 40, unit: 'ml' },
+          { name: 'Nước đường', amount: 10, unit: 'ml' },
+          { name: 'Đá bi', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Đong 40ml cà phê phin vào ly',
+          'Cho đường vào và khuấy nhẹ',
+          'Cho đá vào đầy ly'
+        ],
+        requiredActions: ['stir', 'add_ice'],
+        notes: 'Đi kèm ống hút nhỏ và muỗng.'
+      },
+      {
+        id: 'cf_da_phin_l',
+        name: 'Cà phê đá pha phin',
+        variant: 'Size L (Pha phin)',
+        category: 'Cà phê',
+        icon: '🖤',
+        color: '#2C1810',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê Phin', amount: 80, unit: 'ml' },
+          { name: 'Nước đường', amount: 20, unit: 'ml' },
+          { name: 'Đá bi', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Đong 80ml cà phê phin vào ly',
+          'Cho đường vào và khuấy nhẹ',
+          'Cho đá vào đầy ly'
+        ],
+        requiredActions: ['stir', 'add_ice'],
+        notes: 'Size L dùng 80ml cà phê phin, 20ml nước đường, 200gr đá bi.'
+      },
+      {
+        id: 'cf_sua_may_m',
+        name: 'Cà phê sữa pha máy',
+        variant: 'Size M (Pha máy)',
+        category: 'Cà phê',
+        icon: '🤎',
+        color: '#6F4E37',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê máy', amount: 18, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá bi', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay phin',
+          'Xả nước 3 giây sau đó lắp tay phin vào họng pha',
+          'Chiết suất café double espresso',
+          'Cho sữa đặc vào và khuấy nhẹ, cho đá vào đầy ly'
+        ],
+        requiredActions: ['extract_espresso', 'stir', 'add_ice'],
+        notes: 'Nhiệt độ trong máy 90° - 95°, áp suất 9 - 10 bar. Lớp crema dày và vàng đều.'
+      },
+      {
+        id: 'cf_sua_may_l',
+        name: 'Cà phê sữa pha máy',
+        variant: 'Size L (Pha máy)',
+        category: 'Cà phê',
+        icon: '🤎',
+        color: '#6F4E37',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê máy', amount: 36, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 50, unit: 'ml' },
+          { name: 'Đá bi', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 36gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay phin',
+          'Xả nước 3 giây sau đó lắp tay phin vào họng pha',
+          'Chiết suất café double espresso',
+          'Cho sữa đặc vào và khuấy nhẹ, cho đá vào đầy ly'
+        ],
+        requiredActions: ['extract_espresso', 'stir', 'add_ice'],
+        notes: 'Size L gấp đôi định lượng cà phê (36gr) và sữa đặc (50ml), đá 200gr.'
+      },
+      {
+        id: 'cf_sua_phin_m',
+        name: 'Cà phê sữa pha phin',
+        variant: 'Size M (Pha phin)',
+        category: 'Cà phê',
+        icon: '🤎',
+        color: '#7B5438',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê phin', amount: 40, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá bi', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Đong 40ml cà phê phin vào ly',
+          'Cho sữa đặc vào và khuấy nhẹ cho tan sữa đặc',
+          'Cho đá vào đầy ly'
+        ],
+        requiredActions: ['stir', 'add_ice'],
+        notes: 'Đi kèm muỗng, ống hút.'
+      },
+      {
+        id: 'cf_sua_phin_l',
+        name: 'Cà phê sữa pha phin',
+        variant: 'Size L (Pha phin)',
+        category: 'Cà phê',
+        icon: '🤎',
+        color: '#7B5438',
+        glass: 'Ly thủy tinh 248ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê phin', amount: 80, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 50, unit: 'ml' },
+          { name: 'Đá bi', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Đong 80ml cà phê phin vào ly',
+          'Cho sữa đặc vào và khuấy nhẹ cho tan sữa đặc',
+          'Cho đá vào đầy ly'
+        ],
+        requiredActions: ['stir', 'add_ice'],
+        notes: 'Size L dùng 80ml cà phê phin, 50ml sữa đặc, 200gr đá bi.'
+      },
+      {
+        id: 'cf_den_nong',
+        name: 'Cà phê đen nóng',
+        variant: 'Size M (Nóng - Máy)',
+        category: 'Cà phê',
+        icon: '♨️',
+        color: '#3E2723',
+        glass: 'Tách sứ 150ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê Ro', amount: 18, unit: 'gr' },
+          { name: 'Đường', amount: 10, unit: 'ml' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay phin',
+          'Xả nước 3 giây sau đó lắp tay phin vào họng pha',
+          'Chiết suất café double espresso vào tách sứ, đi kèm đường với muỗng'
+        ],
+        requiredActions: ['extract_espresso'],
+        notes: 'Slide ghi chung "Cà phê đen or Cà phê sữa nóng" (Size L dùng 36gr cà phê Ro, 20ml đường).'
+      },
+      {
+        id: 'cf_sua_nong',
+        name: 'Cà phê sữa nóng',
+        variant: 'Size M (Nóng - Máy)',
+        category: 'Cà phê',
+        icon: '☕',
+        color: '#8D6E63',
+        glass: 'Tách sứ 150ml, sạch và khô ráo',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cà phê Ro', amount: 18, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột',
+          'Nén nhẹ và cân bằng khối café trong tay phin',
+          'Xả nước 3 giây sau đó lắp tay phin vào họng pha',
+          'Chiết suất café double espresso vào tách sứ có sữa đặc'
+        ],
+        requiredActions: ['extract_espresso'],
+        notes: 'Size L dùng 36gr cà phê Ro, 50ml sữa đặc.'
+      },
+      {
+        id: 'sua_tuoi_cf',
+        name: 'Sữa tươi cà phê',
+        variant: 'Ly 330ml (Phân tầng)',
+        category: 'Cà phê',
+        icon: '🥛',
+        color: '#D7CCC8',
+        glass: 'Ly thủy tinh cao 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 80, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'ml' },
+          { name: 'Cà phê phin', amount: 10, unit: 'ml' }
+        ],
+        steps: [
+          'Cho thứ tự các nguyên liệu vào ly: Sữa đặc -> Sữa tươi -> Đá -> café phin tạo bọt trên cùng'
+        ],
+        requiredActions: ['add_ice', 'layer_pour'],
+        notes: 'Bắt buộc đúng thứ tự để ly café phân tầng. Lưu ý: Slide gốc ghi đơn vị của Đá là 150 ml.'
+      },
+      {
+        id: 'bac_xiu_nong',
+        name: 'Bạc xỉu nóng',
+        variant: 'Tách sứ 160ml',
+        category: 'Cà phê',
+        icon: '🤍',
+        color: '#D7B89C',
+        glass: 'Tách sứ 160ml, ấm và sạch',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Nước sôi', amount: 30, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Cà phê Ro', amount: 9, unit: 'gr' },
+          { name: 'Sữa thanh trùng', amount: 100, unit: 'ml' }
+        ],
+        steps: [
+          'Lấy 30ml nước sôi cho vào tách',
+          'Cho thêm 25ml sữa đặc vào tách nước sôi khuấy tan sữa',
+          'Xay hạt cafe rang -> lấy lượng 9gr cafe bột, nén nhẹ, xả nước 3s và chiết suất single espresso vào tách có sữa',
+          'Dùng vòi hơi máy café đánh nóng sữa tươi (60° - 65°) và rót vào tách có sẵn nguyên liệu'
+        ],
+        requiredActions: ['stir', 'extract_espresso', 'steam_milk'],
+        notes: 'Dùng 9gr cà phê (single espresso). Sữa thanh trùng làm lạnh trước khi đánh, nhiệt độ sau đánh 60° - 65°.'
+      },
+      {
+        id: 'bac_xiu_da',
+        name: 'Bạc xỉu đá',
+        variant: 'Ly 330ml (Phân tầng)',
+        category: 'Cà phê',
+        icon: '🧋',
+        color: '#E6CCB2',
+        glass: 'Ly thủy tinh cao 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'ml' },
+          { name: 'Cà phê phin', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Cho thứ tự các nguyên liệu vào ly: Sữa đặc -> Sữa tươi -> Đá -> café phin tạo bọt trên cùng'
+        ],
+        requiredActions: ['add_ice', 'layer_pour'],
+        notes: 'Bắt buộc đúng thứ tự để tạo phân tầng. Slide gốc ghi đơn vị Đá là 150 ml.'
+      },
+      {
+        id: 'cacao_nong',
+        name: 'Cacao sữa nóng',
+        variant: 'Tách sứ 160ml',
+        category: 'Cà phê',
+        icon: '🍫',
+        color: '#5D4037',
+        glass: 'Tách sứ 160ml, ấm và sạch',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bột Ca cao', amount: 10, unit: 'gr' },
+          { name: 'Nước sôi', amount: 30, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa Thanh trùng', amount: 100, unit: 'ml' }
+        ],
+        steps: [
+          'Cho bột cacao vào nước sôi vào tách khuấy đều',
+          'Cho thêm sữa đặc vào khuấy',
+          'Dùng vòi hơi của máy café đánh nóng sữa và rót vào tách có sẵn hỗn hợp cacao'
+        ],
+        requiredActions: ['stir', 'steam_milk'],
+        notes: 'Hỗn hợp phải được đánh tan và trộn đều với nhau.'
+      },
+      {
+        id: 'cacao_da',
+        name: 'Cacao sữa đá',
+        variant: 'Ly cối 330ml (Phân tầng)',
+        category: 'Cà phê',
+        icon: '🍫',
+        color: '#6D4C41',
+        glass: 'Ly cối thủy tinh 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Nước sôi', amount: 50, unit: 'ml' },
+          { name: 'Bột Ca cao', amount: 10, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Cho nước sôi vào ly đong cho thêm bột cacao vào khuấy cho tan',
+          'Cho sữa đặc và sữa tươi vào ly khuấy đều',
+          'Thêm đá và rưới hỗn hợp cacao lên trên cùng'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour'],
+        notes: 'Ly cacao sữa đá được phân tầng 2 lớp màu khác nhau.'
+      },
+      {
+        id: 'americano_nong',
+        name: 'Americano nóng',
+        variant: 'Tách sứ 200ml',
+        category: 'Cà phê',
+        icon: '☕',
+        color: '#3E2723',
+        glass: 'Tách sứ 200ml, ấm và sạch',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Cà phê Ro', amount: 18, unit: 'gr' },
+          { name: 'Nước sôi', amount: 150, unit: 'ml' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột, nén nhẹ và cân bằng khối café trong tay pha',
+          'Xả nước 3 giây sau đó lắp tay pha vào họng pha',
+          'Cho 150ml nước sôi vào tách, chiết suất café double espresso trực tiếp vào ly, và rưới trên cùng'
+        ],
+        requiredActions: ['extract_espresso'],
+        notes: 'Giữ lớp crema dày và vàng đều trên bề mặt nước.'
+      },
+      {
+        id: 'americano_da',
+        name: 'Americano đá',
+        variant: 'Ly cối 330ml',
+        category: 'Cà phê',
+        icon: '🧊',
+        color: '#3E2723',
+        glass: 'Ly cối thủy tinh 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Cà phê Ro', amount: 18, unit: 'gr' },
+          { name: 'Nước lọc', amount: 60, unit: 'ml' },
+          { name: 'Đá', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột, nén nhẹ và cân bằng khối café trong tay pha',
+          'Xả nước 3 giây sau đó lắp tay pha vào họng pha',
+          'Cho 60ml nước lọc và đá vào ly',
+          'Chiết suất café double espresso và rưới trên cùng'
+        ],
+        requiredActions: ['add_ice', 'extract_espresso', 'layer_pour'],
+        notes: 'Giữ lớp crema dày và vàng đều trên bề mặt nước.'
+      },
+      {
+        id: 'bac_xiu_suong_sao',
+        name: 'Bạc xỉu đá sương sáo',
+        variant: 'Ly 330ml (Phân tầng)',
+        category: 'Cà phê',
+        icon: '🍮',
+        color: '#D7B89C',
+        glass: 'Ly thủy tinh cao 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Sương Sáo', amount: 5, unit: 'viên' },
+          { name: 'Đá', amount: 150, unit: 'ml' },
+          { name: 'Cà phê phin', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Cho thứ tự các nguyên liệu vào ly: Sữa đặc -> Sữa tươi -> Sương sáo -> Đá -> café phin tạo bọt trên cùng'
+        ],
+        requiredActions: ['add_ice', 'layer_pour'],
+        notes: 'Slide gốc ghi đơn vị Đá là 150 ml. Bắt buộc đúng thứ tự để phân tầng.'
+      },
+      {
+        id: 'matcha_latte',
+        name: 'Matcha Latte',
+        variant: 'Ly nhựa',
+        category: 'Cà phê',
+        icon: '🍵',
+        color: '#689F38',
+        glass: 'Ly nhựa (đi kèm ống hút nhỏ)',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Nước sôi', amount: 30, unit: 'ml' },
+          { name: 'Bột matcha', amount: 3, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sữa tươi', amount: 100, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Khuấy đều hỗn hợp bột matcha và nước sôi đến khi bột matcha hòa tan ra',
+          'Khuấy đều hỗn hợp sữa đặc và sữa tươi',
+          'Cho đá vào hỗn hợp sữa, sau đó cho matcha lên lớp trên cùng'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour'],
+        notes: 'Matcha đánh tan bằng 30ml nước sôi trước khi rưới lên lớp sữa đá.'
+      },
+      {
+        id: 'ca_phe_muoi',
+        name: 'Cà phê muối',
+        variant: 'Ly cối 330ml',
+        category: 'Cà phê',
+        icon: '🧂',
+        color: '#8D6E63',
+        glass: 'Ly cối thủy tinh 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Cà phê phin', amount: 40, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Kem Muối', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Đong 40 ml cà phê phin vào ly',
+          'Cho sữa đặc vào và KHUẤY NHẸ cho tan sữa đặc, cho đá vào đầy ly',
+          'Cho hỗn hợp kem muối rưới lên ly café sữa',
+          'Rắc ít bột cacao decor'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Phân tầng lớp café sữa và lớp kem muối, rắc ít bột cacao decor.'
+      },
+      {
+        id: 'honey_orange_espresso',
+        name: 'Honey Orange Espresso',
+        variant: 'Ly thủy tinh 330ml',
+        category: 'Cà phê',
+        icon: '🍊',
+        color: '#FB8C00',
+        glass: 'Ly thủy tinh 330ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trái cam', amount: 1, unit: 'trái' },
+          { name: 'Mật ong', amount: 20, unit: 'ml' },
+          { name: 'Cà phê máy', amount: 18, unit: 'gr' }
+        ],
+        steps: [
+          'Vắt 1 trái cam cho vào ly',
+          'Cho thêm mật ong vào khuấy tan, cho đá vào',
+          'Chiết xuất cà phê máy (18gr) và rót 40ml café lên trên cùng tạo phân tầng'
+        ],
+        requiredActions: ['stir', 'extract_espresso', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Lưu ý: Bảng nguyên liệu gốc không ghi định lượng đá (chỉ nhắc "cho đá vào" ở cách làm). Décor lát chanh lên cùng.'
+      },
+      {
+        id: 'capuchino',
+        name: 'Capuchino nóng',
+        variant: 'Tách sứ 160ml',
+        category: 'Cà phê',
+        icon: '🫧',
+        color: '#A1887F',
+        glass: 'Tách sứ 160ml, ấm và sạch',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Cà phê máy', amount: 18, unit: 'gr' },
+          { name: 'Sữa Thanh trùng', amount: 160, unit: 'ml' }
+        ],
+        steps: [
+          'Xay hạt cafe rang -> lấy lượng 18gr cafe bột, nén nhẹ và cân bằng khối café trong tay pha',
+          'Xả nước 3 giây sau đó lắp tay pha vào họng pha, chiết suất 30ml espresso vào tách sứ',
+          'Dùng vòi hơi của máy café đánh nóng sữa và tạo bọt (60° - 65°, lượng bọt dâng gấp đôi)',
+          'Đổ sữa vào tách có café và tạo hình cho ly café'
+        ],
+        requiredActions: ['extract_espresso', 'steam_milk'],
+        notes: 'Đặt lên khay đi kèm đường và bánh.'
+      },
+
+      // ==================== NHÓM 2: ĐẶC BIỆT ====================
+      {
+        id: 'luc_tra_long_nhan_m',
+        name: 'Lục trà long nhãn',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Đặc biệt',
+        icon: '🍃',
+        color: '#8BC34A',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bột Matcha', amount: 1.4, unit: 'muỗng cf' },
+          { name: 'Nước Sôi', amount: 100, unit: 'ml' },
+          { name: 'Nước đường', amount: 30, unit: 'ml' },
+          { name: 'Chanh', amount: 10, unit: 'ml' },
+          { name: 'Nước nhãn ngâm', amount: 20, unit: 'ml' },
+          { name: 'Nhãn ngâm', amount: 6, unit: 'trái' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Đá viên', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Khuấy đều bột matcha với nước sôi. Làm nguội',
+          'Cho lần lượt đường, nước ngâm nhãn, chanh khuấy đều rồi cho đá vào',
+          'Nhãn ngâm và rau câu để lên cùng, décor húng lủi'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Matcha khuấy tan làm nguội mới cho các nguyên liệu còn lại vào. Décor húng lủi và topping.'
+      },
+      {
+        id: 'luc_tra_long_nhan_l',
+        name: 'Lục trà long nhãn',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Đặc biệt',
+        icon: '🍃',
+        color: '#8BC34A',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bột Matcha', amount: 1.5, unit: 'muỗng cf' },
+          { name: 'Nước Sôi', amount: 150, unit: 'ml' },
+          { name: 'Nước đường', amount: 40, unit: 'ml' },
+          { name: 'Chanh', amount: 15, unit: 'ml' },
+          { name: 'Nước nhãn ngâm', amount: 30, unit: 'ml' },
+          { name: 'Nhãn ngâm', amount: 6, unit: 'trái' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Đá viên', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Khuấy đều bột matcha với nước sôi. Làm nguội',
+          'Cho lần lượt đường, nước ngâm nhãn, chanh khuấy đều rồi cho đá vào',
+          'Nhãn ngâm và rau câu để lên cùng, décor húng lủi'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Size L giữ nguyên 6 trái nhãn ngâm và 1 viên rau câu phô mai.'
+      },
+      {
+        id: 'tra_tu_quy_m',
+        name: 'Trà tứ quý',
+        variant: 'Size M',
+        category: 'Đặc biệt',
+        icon: '🍓',
+        color: '#E53935',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà Lài', amount: 100, unit: 'ml' },
+          { name: 'Nước đường', amount: 10, unit: 'ml' },
+          { name: 'Mứt dâu', amount: 20, unit: 'ml' },
+          { name: 'Syrup dâu', amount: 20, unit: 'ml' },
+          { name: 'Chanh', amount: 10, unit: 'ml' },
+          { name: 'Vải ngâm', amount: 1, unit: 'trái' },
+          { name: 'Đào ngâm', amount: 1, unit: 'miếng' },
+          { name: 'Nhãn ngâm', amount: 1, unit: 'trái' },
+          { name: 'Đá viên', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Sử dụng 100ml cốt trà lài (ủ 1 gói 300ml nước sôi, để nguội)',
+          'Cho lần lượt các nguyên liệu vào shaker, cho đá và shaker nhẹ cho đều hỗn hợp',
+          'Rót trà vào ly và cho các topping vào (vải, đào, nhãn, rau câu phô mai)'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Trà lài không quá đậm trà và để nguội. Décor húng lủi và topping.'
+      },
+      {
+        id: 'tra_tu_quy_l',
+        name: 'Trà tứ quý',
+        variant: 'Size L',
+        category: 'Đặc biệt',
+        icon: '🍓',
+        color: '#E53935',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà Lài', amount: 150, unit: 'ml' },
+          { name: 'Nước đường', amount: 15, unit: 'ml' },
+          { name: 'Mứt dâu', amount: 30, unit: 'ml' },
+          { name: 'Syrup dâu', amount: 30, unit: 'ml' },
+          { name: 'Chanh', amount: 15, unit: 'ml' },
+          { name: 'Vải ngâm', amount: 1, unit: 'trái' },
+          { name: 'Đào ngâm', amount: 1, unit: 'miếng' },
+          { name: 'Nhãn ngâm', amount: 1, unit: 'trái' },
+          { name: 'Đá viên', amount: 200, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Sử dụng 150ml cốt trà lài để nguội',
+          'Cho các nguyên liệu và đá vào shaker nhẹ cho đều hỗn hợp',
+          'Rót trà vào ly và cho các topping vào'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Size L giữ nguyên topping 1 vải, 1 đào, 1 nhãn, 1 rau câu phô mai.'
+      },
+      {
+        id: 'tra_tac_xi_muoi_m',
+        name: 'Trà tắc xí muội',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Đặc biệt',
+        icon: '🍋',
+        color: '#FBC02D',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Tắc xí muội', amount: 60, unit: 'gr' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Nước lọc', amount: 100, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Cho nguyên liệu vào shaker và lắc đều',
+          'Rót hỗn hợp vào ly, phần cái tắc xí muội cho lên cùng sau khi nước được rót vào ly',
+          'Décor nửa trái tắc và húng lủi'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: '60gr tắc xí muội tương đương 3 muỗng.'
+      },
+      {
+        id: 'tra_tac_xi_muoi_l',
+        name: 'Trà tắc xí muội',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Đặc biệt',
+        icon: '🍋',
+        color: '#FBC02D',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Tắc xí muội', amount: 80, unit: 'gr' },
+          { name: 'Đường', amount: 30, unit: 'ml' },
+          { name: 'Nước lọc', amount: 150, unit: 'ml' },
+          { name: 'Đá', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Cho nguyên liệu vào shaker và lắc đều',
+          'Rót hỗn hợp vào ly, phần cái tắc xí muội cho lên cùng',
+          'Décor nửa trái tắc và húng lủi'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: '80gr tắc xí muội tương đương 4 muỗng.'
+      },
+
+      // ==================== NHÓM 3: TRÀ SỮA ====================
+      {
+        id: 'ts_truyen_thong_m',
+        name: 'Trà sữa truyền thống',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🧋',
+        color: '#C68B59',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Trà sữa', amount: 150, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly',
+          'Cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào (khúc bạch, rau câu phô mai)'
+        ],
+        requiredActions: ['add_ice', 'garnish'],
+        notes: 'Hỗn hợp được khuấy đều, đi kèm muỗng và ống hút lớn.'
+      },
+      {
+        id: 'ts_truyen_thong_l',
+        name: 'Trà sữa truyền thống',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🧋',
+        color: '#C68B59',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 250, unit: 'gr' },
+          { name: 'Trà sữa', amount: 200, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly',
+          'Cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào'
+        ],
+        requiredActions: ['add_ice', 'garnish'],
+        notes: 'Size L: 200ml trà sữa, 250gr đá, trân châu giữ nguyên 60gr.'
+      },
+      {
+        id: 'ts_kai_m',
+        name: 'Trà sữa Kai',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '👑',
+        color: '#D4A373',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Trà sữa', amount: 150, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Machiato', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào',
+          'Rót machiato lên trên cùng và rắc ít bột cacao'
+        ],
+        requiredActions: ['add_ice', 'layer_pour', 'garnish'],
+        notes: 'Lưu ý lượng đá của Trà sữa Kai Size M là 150gr (khác với Truyền thống 200gr).'
+      },
+      {
+        id: 'ts_kai_l',
+        name: 'Trà sữa Kai',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '👑',
+        color: '#D4A373',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Trà sữa', amount: 200, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Machiato', amount: 30, unit: 'ml' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào',
+          'Rót machiato lên trên cùng và rắc ít bột cacao'
+        ],
+        requiredActions: ['add_ice', 'layer_pour', 'garnish'],
+        notes: 'Size L dùng 30ml machiato và 200gr đá.'
+      },
+      {
+        id: 'ts_full_topping_m',
+        name: 'Trà sữa full topping',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🍡',
+        color: '#B08968',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Trà sữa', amount: 150, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Sương sáo', amount: 2, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào (khúc bạch, sương sáo, rau câu phô mai)'
+        ],
+        requiredActions: ['add_ice', 'garnish'],
+        notes: 'Khác với Trà sữa truyền thống ở chỗ có thêm 2 viên sương sáo.'
+      },
+      {
+        id: 'ts_full_topping_l',
+        name: 'Trà sữa full topping',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🍡',
+        color: '#B08968',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 250, unit: 'gr' },
+          { name: 'Trà sữa', amount: 200, unit: 'ml' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Sương sáo', amount: 2, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa vào',
+          'Sau cùng cho các topping vào'
+        ],
+        requiredActions: ['add_ice', 'garnish'],
+        notes: 'Size L: 200ml trà sữa, 250gr đá, đủ 4 loại topping.'
+      },
+      {
+        id: 'ts_cacao_m',
+        name: 'Trà sữa cacao',
+        variant: 'Size M (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🍫',
+        color: '#6D4C41',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bột cacao', amount: 3, unit: 'gr' },
+          { name: 'Trà sữa', amount: 150, unit: 'ml' },
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Machiato', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Hòa tan bột cacao vào 20ml nước sôi. Rót vào trà sữa đã được đong sẵn',
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa cacao vào',
+          'Sau cùng cho các topping vào',
+          'Rót machiato lên trên cùng và rắc ít bột cacao'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Hòa tan 3gr bột cacao với 20ml nước sôi trước khi pha vào trà sữa.'
+      },
+      {
+        id: 'ts_cacao_l',
+        name: 'Trà sữa cacao',
+        variant: 'Size L (Ly 380ml)',
+        category: 'Trà sữa',
+        icon: '🍫',
+        color: '#6D4C41',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bột cacao', amount: 4, unit: 'gr' },
+          { name: 'Trà sữa', amount: 200, unit: 'ml' },
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Machiato', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Hòa tan 4gr bột cacao vào 20ml nước sôi. Rót vào trà sữa đã được đong sẵn',
+          'Cho trân châu dưới đáy ly, cho đá vào và rót trà sữa cacao vào',
+          'Sau cùng cho các topping vào',
+          'Rót machiato lên trên cùng và rắc ít bột cacao'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Size L dùng 4gr bột cacao, 200ml trà sữa, Machiato vẫn 20ml.'
+      },
+
+      // ==================== NHÓM 4: TRÀ GIẢI NHIỆT ====================
+      {
+        id: 'tra_trai_cay_nhiet_doi',
+        name: 'Trà trái cây nhiệt đới',
+        variant: 'Trà giải nhiệt',
+        category: 'Trà giải nhiệt',
+        icon: '🍍',
+        color: '#FF9800',
+        glass: 'Ly trà giải nhiệt (cắm sẵn ống hút và muỗng)',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà Lài', amount: 100, unit: 'ml' },
+          { name: 'Nước sôi', amount: 20, unit: 'ml' },
+          { name: 'Nước đường', amount: 20, unit: 'ml' },
+          { name: 'Trái cây', amount: 1.5, unit: 'vá' }
+        ],
+        steps: [
+          'Sử dụng 80ml cốt trà lài thêm 20ml nước sôi để màu trà không bị đục (bảng ghi Trà Lài 100ml + Nước sôi 20ml)',
+          'Lần lượt cho đường và trái cây, đá vào shaker lắc lên',
+          'Rót ra ly đã cắm sẵn ống hút và muỗng, décor húng lủi'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Khi múc trái cây lấy cả phần nước ngâm. Bảng nguyên liệu không ghi số gam đá.'
+      },
+      {
+        id: 'tra_nho_xanh',
+        name: 'Trà nho xanh',
+        variant: 'Ly cối 380ml',
+        category: 'Trà giải nhiệt',
+        icon: '🍇',
+        color: '#9CCC65',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Nước sôi', amount: 100, unit: 'ml' },
+          { name: 'Bột matcha', amount: 0.5, unit: 'gr' },
+          { name: 'Mứt Nho', amount: 30, unit: 'ml' },
+          { name: 'Đường', amount: 10, unit: 'ml' },
+          { name: 'Nho trái', amount: 2, unit: 'trái' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Hòa tan 0.5gr bột matcha vào 100ml nước sôi, để nguội',
+          'Cho hỗn hợp nguyên liệu vào shaker, cho đá vào lắc đều lên',
+          'Rót ra ly, décor 2 trái nho, rau câu phô mai, húng lủi bên trên'
+        ],
+        requiredActions: ['stir', 'shake', 'add_ice', 'garnish'],
+        notes: 'Bột matcha cho ít (0.5gr) để tạo màu không tạo hương. Bảng nguyên liệu không ghi định lượng đá.'
+      },
+      {
+        id: 'tra_dac_viet_quat',
+        name: 'Trà đác việt quất',
+        variant: 'Ly cối 380ml',
+        category: 'Trà giải nhiệt',
+        icon: '🫐',
+        color: '#5E35B1',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà lài', amount: 100, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Mứt Việt quất', amount: 20, unit: 'ml' },
+          { name: 'Chanh', amount: 10, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Đác Ngâm', amount: 4, unit: 'hạt' }
+        ],
+        steps: [
+          'Cho hỗn hợp nguyên liệu vào shaker, cho đá vào lắc nhẹ',
+          'Rót ra ly, décor rau câu, hạt đác (4 hạt), húng lủi bên trên'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Hỗn hợp phải lắc nhẹ, có bọt bên trên.'
+      },
+      {
+        id: 'tra_gao_sen_vang',
+        name: 'Trà gạo sen vàng',
+        variant: 'Ly 300ml',
+        category: 'Trà giải nhiệt',
+        icon: '🌾',
+        color: '#D4A373',
+        glass: 'Ly thủy tinh 300ml, sạch và khô ráo',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Hạt Sen', amount: 8, unit: 'hạt' },
+          { name: 'Trà gạo', amount: 120, unit: 'ml' },
+          { name: 'Nước ngâm sen', amount: 20, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Machi', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Ủ 1 gói trà gạo với 400ml nước sôi ủ 5p (khuấy đều 30s cho ra cốt trà đậm)',
+          'Cho 8 hạt sen vào dưới đáy ly',
+          'Rót 120ml trà đã ủ vào, cho nước ngâm sen, đường và khuấy đều, cho đá',
+          'Sau cùng rót machiato (20ml) lên cùng và rắc ít bột matcha'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Bảng nguyên liệu không ghi số gam đá (cách làm có bước cho đá trước khi rót machiato).'
+      },
+      {
+        id: 'tra_hat_sen_machiato',
+        name: 'Trà hạt sen machiato',
+        variant: 'Ly cối 380ml (3 tầng)',
+        category: 'Trà giải nhiệt',
+        icon: '🪷',
+        color: '#8D6E63',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Hạt sen', amount: 6, unit: 'hạt' },
+          { name: 'Đường nước', amount: 20, unit: 'ml' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Trà đen', amount: 100, unit: 'ml' },
+          { name: 'Nước sen ngâm', amount: 20, unit: 'ml' },
+          { name: 'Machiato', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Cho thứ tự từng nguyên liệu vào: Hạt sen (6 hạt), đường nước (20ml), đá (200gr)',
+          'Hòa tan trà đen (100ml) với nước sen ngâm (20ml) rưới nhẹ vào ly đã có đá',
+          'Cho lớp machiato (20ml) lên trên cùng'
+        ],
+        requiredActions: ['add_ice', 'layer_pour'],
+        notes: 'Trà được phân tầng 3 lớp riêng biệt. Lưu ý số hạt sen là 6 hạt (khác Trà gạo sen vàng là 8 hạt).'
+      },
+      {
+        id: 'tra_vai',
+        name: 'Trà vải',
+        variant: 'Ly cối 380ml',
+        category: 'Trà giải nhiệt',
+        icon: '🍈',
+        color: '#F48FB1',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà đen', amount: 100, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Syrup vải', amount: 10, unit: 'ml' },
+          { name: 'Mứt Vải', amount: 10, unit: 'ml' },
+          { name: 'Tắc', amount: 1, unit: 'trái' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 2, unit: 'viên' },
+          { name: 'Trái Vải', amount: 2, unit: 'trái' }
+        ],
+        steps: [
+          'Cho hỗn hợp nguyên liệu vào shaker, cho đá vào lắc nhẹ',
+          'Rót ra ly, décor rau câu phô mai (2 viên), trái vải (2 trái), húng lủi bên trên'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Hỗn hợp phải lắc nhẹ, có bọt bên trên.'
+      },
+      {
+        id: 'tra_dao',
+        name: 'Trà đào',
+        variant: 'Ly cối 380ml',
+        category: 'Trà giải nhiệt',
+        icon: '🍑',
+        color: '#FF7043',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà đen', amount: 100, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Syrup đào', amount: 10, unit: 'ml' },
+          { name: 'Mứt Đào', amount: 10, unit: 'ml' },
+          { name: 'Tắc', amount: 1, unit: 'trái' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 2, unit: 'viên' },
+          { name: 'Đào Ngâm', amount: 2, unit: 'miếng' }
+        ],
+        steps: [
+          'Cho hỗn hợp nguyên liệu vào shaker, cho đá vào lắc nhẹ',
+          'Rót ra ly, décor rau câu phô mai (2 viên), miếng đào (2 miếng), húng lủi bên trên'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Hỗn hợp phải lắc nhẹ, có bọt bên trên.'
+      },
+      {
+        id: 'tra_lipton_mat_ong',
+        name: 'Trà Lipton mật ong',
+        variant: 'Đá (Ly cối 380ml)',
+        category: 'Trà giải nhiệt',
+        icon: '🍯',
+        color: '#FFB300',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Trà lipton', amount: 1, unit: 'gói' },
+          { name: 'Nước sôi', amount: 100, unit: 'ml' },
+          { name: 'Mật Ong', amount: 20, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Chanh', amount: 20, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Cho hỗn hợp nguyên liệu vào shaker, cho đá vào lắc nhẹ',
+          'Rót ra ly, décor lát chanh, húng lủi'
+        ],
+        requiredActions: ['shake', 'add_ice', 'garnish'],
+        notes: 'Chanh 20ml tương đương 1 trái.'
+      },
+      {
+        id: 'tra_lipton_mat_ong_nong',
+        name: 'Trà Lipton mật ong nóng',
+        variant: 'Tách sứ 250ml',
+        category: 'Trà giải nhiệt',
+        icon: '☕',
+        color: '#FFA000',
+        glass: 'Tách sứ 250ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Trà lipton', amount: 1, unit: 'gói' },
+          { name: 'Nước sôi', amount: 180, unit: 'ml' },
+          { name: 'Mật Ong', amount: 20, unit: 'ml' },
+          { name: 'Đường', amount: 30, unit: 'ml' },
+          { name: 'Chanh', amount: 10, unit: 'ml' }
+        ],
+        steps: [
+          'Cho gói lipton vào tách 80ml nước sôi',
+          'Cho đường, mật ong, chanh vào ly đong khuấy đều',
+          'Rót hỗn hợp đường vào tách có trà và cho thêm 100ml nước sôi vào'
+        ],
+        requiredActions: ['stir', 'garnish'],
+        notes: 'Tổng nước sôi là 180ml (80ml ủ trà + 100ml rót thêm). Chanh 10ml (1/2 trái). Décor lát chanh.'
+      },
+      {
+        id: 'sua_tuoi_duong_nau',
+        name: 'Sữa tươi đường nâu',
+        variant: 'Ly cối 380ml',
+        category: 'Trà giải nhiệt',
+        icon: '🤎',
+        color: '#8D6E63',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Đường Nâu', amount: 20, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 100, unit: 'ml' },
+          { name: 'Trân châu', amount: 60, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho 20ml đường nâu tán xung quanh ly',
+          'Cho đá vào để làm đọng đường nâu. Sau đó rót sữa tươi vào',
+          'Cho trân châu lên cùng, cho thêm rau câu và khúc bạch'
+        ],
+        requiredActions: ['add_ice', 'layer_pour', 'garnish'],
+        notes: 'Khi tán đều đường nâu cho đá vào rồi rót sữa tươi. Bảng nguyên liệu không ghi số gam đá.'
+      },
+
+      // ==================== NHÓM 5: COLD BREW ====================
+      {
+        id: 'cold_brew_truyen_thong',
+        name: 'Cold brew truyền thống',
+        variant: 'Ly cối 300ml + Chai 250ml',
+        category: 'Cold Brew',
+        icon: '🍾',
+        color: '#4E342E',
+        glass: 'Ly cối thủy tinh 300ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cold brew', amount: 1, unit: 'chai' },
+          { name: 'Đá', amount: 100, unit: 'gr' }
+        ],
+        steps: [
+          'Cho 100gr đá vào ly cối thủy tinh 300ml đi kèm chai cold brew (250ml)'
+        ],
+        requiredActions: ['add_ice'],
+        notes: 'Chai cold brew 250ml đi kèm với ly đá, muỗng và ống hút.'
+      },
+      {
+        id: 'cold_brew_chanh',
+        name: 'Cold brew chanh',
+        variant: 'Ly cối 380ml',
+        category: 'Cold Brew',
+        icon: '🍋',
+        color: '#6D4C41',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Nước lọc', amount: 50, unit: 'ml' },
+          { name: 'Mật ong', amount: 10, unit: 'ml' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Chanh', amount: 0.5, unit: 'trái' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Cold brew', amount: 100, unit: 'ml' }
+        ],
+        steps: [
+          'Cho nước lọc, mật ong, đường, chanh, vỏ chanh khuấy đều',
+          'Cho 200gr đá vào',
+          'Rót 100ml cold brew lên cùng, décor lát chanh'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Đi kèm ống hút và muỗng.'
+      },
+
+      // ==================== NHÓM 6: SỮA CHUA ====================
+      {
+        id: 'sua_chua_da',
+        name: 'Sữa chua đá',
+        variant: 'Ly cối 325ml',
+        category: 'Sữa chua',
+        icon: '🍨',
+        color: '#FFF9C4',
+        glass: 'Ly cối thủy tinh 325ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Yogurt', amount: 1, unit: 'hủ' },
+          { name: 'Tắc', amount: 1, unit: 'trái' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 200, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 2, unit: 'viên' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho hỗn hợp (Yogurt, tắc, sữa đặc) vào ly và khuấy đều',
+          'Sau đó cho đá đầy ly, thêm thạch rau câu phô mai và khúc bạch',
+          'Décor húng lủi'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Lưu ý: Đá của Sữa chua đá là 200gr, Rau câu phô mai 2 viên.'
+      },
+      {
+        id: 'sua_chua_hat_dac',
+        name: 'Sữa chua hạt đác',
+        variant: 'Ly cối 325ml',
+        category: 'Sữa chua',
+        icon: '🤍',
+        color: '#F3E5F5',
+        glass: 'Ly cối thủy tinh 325ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa chua', amount: 1, unit: 'hủ' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Tắc', amount: 1, unit: 'trái' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Hạt đác', amount: 4, unit: 'viên' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Cho hỗn hợp vào ly và khuấy đều',
+          'Sau đó cho đá đầy ly, thêm thạch khúc bạch, rau câu và hạt đác (4 viên)',
+          'Décor húng lủi'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Hạt đác 4 viên, khúc bạch 1 viên, rau câu phô mai 1 viên.'
+      },
+      {
+        id: 'sua_chua_viet_quat',
+        name: 'Sữa chua việt quất',
+        variant: 'Ly cối 325ml',
+        category: 'Sữa chua',
+        icon: '🫐',
+        color: '#7E57C2',
+        glass: 'Ly cối thủy tinh 325ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Mứt Việt Quất', amount: 30, unit: 'ml' },
+          { name: 'Sữa Chua', amount: 1, unit: 'hủ' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Khúc bạch', amount: 1, unit: 'viên' }
+        ],
+        steps: [
+          'Tráng đều mứt việt quất quanh thành ly',
+          'Cho từng thứ tự nguyên liệu vào ly khuấy đều dưới đáy ly',
+          'Thêm đá viên trực tiếp vào ly và thạch bên trên'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Hỗn hợp phải được khuấy đều và có độ sệt, vừa phải.'
+      },
+      {
+        id: 'sua_chua_olong_dau',
+        name: 'Sữa chua Olong dâu',
+        variant: 'Ly cối 325ml',
+        category: 'Sữa chua',
+        icon: '🍓',
+        color: '#EC407A',
+        glass: 'Ly cối thủy tinh 325ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Mứt dâu', amount: 20, unit: 'ml' },
+          { name: 'Syrup dâu', amount: 10, unit: 'ml' },
+          { name: 'Sữa Chua', amount: 1, unit: 'hủ' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Rau câu phô mai', amount: 1, unit: 'viên' },
+          { name: 'Trân châu olong', amount: 1, unit: 'vá' }
+        ],
+        steps: [
+          'Tráng đều mứt quanh thành ly',
+          'Cho từng thứ tự nguyên liệu vào ly khuấy đều dưới đáy ly',
+          'Thêm đá viên trực tiếp vào ly và thạch, trân châu olong (1 vá) bên trên'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Đi kèm muỗng, ống hút trà sữa.'
+      },
+      {
+        id: 'sua_chua_trai_cay',
+        name: 'Sữa chua trái cây',
+        variant: 'Ly cối 325ml',
+        category: 'Sữa chua',
+        icon: '🥭',
+        color: '#FFB74D',
+        glass: 'Ly cối thủy tinh 325ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa chua', amount: 1, unit: 'hủ' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Trái cây', amount: 1.5, unit: 'vá' }
+        ],
+        steps: [
+          'Cho 1 hủ sữa chua vào ly, cho 25ml sữa đặc vào khuấy đều tán thành ly',
+          'Cho 150gr đá vào',
+          'Cho 1.5 vá trái cây lên trên cùng'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Hỗn hợp được khuấy đều.'
+      },
+
+      // ==================== NHÓM 7: ĐÁ XAY ====================
+      {
+        id: 'viet_quat_da_xay',
+        name: 'Việt quất đá xay',
+        variant: 'Ly cối 380ml',
+        category: 'Đá xay',
+        icon: '🫐',
+        color: '#6A1B9A',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Mứt việt quất', amount: 30, unit: 'ml' },
+          { name: 'Đường', amount: 30, unit: 'ml' },
+          { name: 'Sữa dawn', amount: 30, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 250, unit: 'gr' },
+          { name: 'Bột Frappe', amount: 7, unit: 'gr' },
+          { name: 'Bông Kem', amount: 1, unit: 'bông' }
+        ],
+        steps: [
+          'Cho thứ tự từng nguyên liệu vào cối xay: 30ml sauce/mứt việt quất, đường, sữa dawn, sữa tươi',
+          'Cho đá (250gr) vào, sau đó mới cho Bột Frappe (7gr / 2 muỗng) sau đá',
+          'Lắp cối xay vào máy và xay trong vòng 30s-40s',
+          'Rưới 10ml sauce việt quất lên thành ly, cho hỗn hợp đã xay ra ly và xịt 1 bông kem bên trên'
+        ],
+        requiredActions: ['add_ice', 'blend', 'garnish'],
+        notes: 'Quy tắc vàng nhóm đá xay: Các loại bột (Bột Frappe) luôn cho vào SAU KHI CHO ĐÁ để không bám đáy cối.'
+      },
+      {
+        id: 'chocolate_cookie',
+        name: 'Choco cookies',
+        variant: 'Chocolate Cookie (Ly 380ml)',
+        category: 'Đá xay',
+        icon: '🍪',
+        color: '#4E342E',
+        glass: 'Ly cối thủy tinh 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bánh Oreo', amount: 2, unit: 'cái' },
+          { name: 'Đường', amount: 30, unit: 'ml' },
+          { name: 'Sữa dawn', amount: 30, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 250, unit: 'gr' },
+          { name: 'Bột Frappe', amount: 7, unit: 'gr' },
+          { name: 'Bột Cacao', amount: 3, unit: 'gr' },
+          { name: 'Bông Kem', amount: 1, unit: 'bông' }
+        ],
+        steps: [
+          'Cho thứ tự từng nguyên liệu vào cối xay: 1.5 bánh oreo, đường, sữa dawn, sữa tươi, đá',
+          'Bột frappe (7gr / 2 muỗng) và bột cacao (3gr / 1 muỗng) cho vào sau đá',
+          'Lắp cối xay vào máy và xay trong vòng 30s-45s',
+          'Cho hỗn hợp đã xay ra ly và lớp kem bên trên, kèm 0.5 bánh oreo và bột cacao decor bên trên'
+        ],
+        requiredActions: ['add_ice', 'blend', 'garnish'],
+        notes: 'Tổng 2 cái bánh Oreo (1.5 cái xay chung, 0.5 cái cắm decor trên kem).'
+      },
+      {
+        id: 'chanh_tuyet',
+        name: 'Chanh tuyết',
+        variant: 'Ly thủy tinh bầu 380ml',
+        category: 'Đá xay',
+        icon: '❄️',
+        color: '#AED581',
+        glass: 'Ly thủy tinh bầu 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Chanh', amount: 20, unit: 'ml' },
+          { name: 'Đường', amount: 30, unit: 'ml' },
+          { name: 'Sữa dawn', amount: 30, unit: 'ml' },
+          { name: 'Sữa Tươi', amount: 50, unit: 'ml' },
+          { name: 'Vỏ chanh', amount: 0.5, unit: 'trái' },
+          { name: 'Kẹo colia', amount: 2, unit: 'viên' },
+          { name: 'Đá', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Cho thứ tự từng nguyên liệu vào cối xay (Chanh 20ml/1 trái, đường, sữa dawn, sữa tươi, vỏ chanh 1/2 trái, kẹo colia 2 viên, đá 200gr)',
+          'Lắp cối xay vào máy và xay trong vòng 30s-40s',
+          'Cho hỗn hợp đã xay ra ly và décor lát chanh + húng lủi'
+        ],
+        requiredActions: ['add_ice', 'blend', 'garnish'],
+        notes: 'Đá của Chanh tuyết là 200gr (ít hơn Việt quất/Choco cookie 250gr) và không dùng bông kem.'
+      },
+      {
+        id: 'da_xay_hat_sen',
+        name: 'Hạt sen đá xay',
+        variant: 'Đá xay hạt sen (Ly 380ml)',
+        category: 'Đá xay',
+        icon: '🪷',
+        color: '#D7CCC8',
+        glass: 'Ly thủy tinh bầu 380ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sen hạt', amount: 10, unit: 'hạt' },
+          { name: 'Đường nước', amount: 30, unit: 'ml' },
+          { name: 'Sữa dawn', amount: 30, unit: 'ml' },
+          { name: 'Nước sen ngâm', amount: 30, unit: 'ml' },
+          { name: 'Sữa tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 200, unit: 'gr' }
+        ],
+        steps: [
+          'Cho thứ tự từng nguyên liệu vào cối xay (10 hạt sen, đường nước, sữa dawn, nước sen ngâm, sữa tươi, đá)',
+          'Lắp cối xay vào máy và xay trong vòng 30s-40s',
+          'Cho hỗn hợp đã xay ra ly và décor lá húng lủi'
+        ],
+        requiredActions: ['add_ice', 'blend', 'garnish'],
+        notes: '10 hạt sen, 30ml nước sen ngâm, 200gr đá.'
+      },
+
+      // ==================== NHÓM 8: THỨC UỐNG KHÁC & MÓN MỚI ====================
+      {
+        id: 'cam_ep',
+        name: 'Cam ép',
+        variant: 'Ly thủy tinh bầu 380ml',
+        category: 'Thức uống khác & Mới',
+        icon: '🍊',
+        color: '#FFA726',
+        glass: 'Ly thủy tinh bầu 380ml',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Cam', amount: 2, unit: 'trái' },
+          { name: 'Đường', amount: 20, unit: 'ml' },
+          { name: 'Muối', amount: 1, unit: 'ít' },
+          { name: 'Đá', amount: 150, unit: 'gr' }
+        ],
+        steps: [
+          'Cam rửa sạch, cho vào máy ép',
+          'Thêm đường, 1 ít muối, khuấy đều và cho đá đầy ly',
+          'Décor lát cam, húng lủi'
+        ],
+        requiredActions: ['stir', 'add_ice', 'garnish'],
+        notes: 'Nếm lại vị cho chuẩn xác, đi kèm muỗng và ống hút.'
+      },
+      {
+        id: 'sting',
+        name: 'Sting',
+        variant: 'Thức uống đóng chai/lon',
+        category: 'Thức uống khác & Mới',
+        icon: '🥤',
+        color: '#E53935',
+        glass: 'Phục vụ nguyên chai/lon kèm ly đá',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Sting', amount: 1, unit: 'chai' }
+        ],
+        steps: [
+          'Có trong bảng Menu mục Thức uống khác (không có slide định lượng riêng trong tài liệu)'
+        ],
+        requiredActions: [],
+        notes: 'Món có trên Menu, phục vụ trực tiếp theo yêu cầu khách hàng.'
+      },
+      {
+        id: 'redbull',
+        name: 'Redbull',
+        variant: 'Thức uống đóng lon',
+        category: 'Thức uống khác & Mới',
+        icon: '🥫',
+        color: '#FBC02D',
+        glass: 'Phục vụ nguyên lon kèm ly đá',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Redbull', amount: 1, unit: 'lon' }
+        ],
+        steps: [
+          'Có trong bảng Menu mục Thức uống khác (không có slide định lượng riêng trong tài liệu)'
+        ],
+        requiredActions: [],
+        notes: 'Món có trên Menu, phục vụ trực tiếp theo yêu cầu khách hàng.'
+      },
+      {
+        id: 'coca',
+        name: 'Coca',
+        variant: 'Thức uống đóng lon',
+        category: 'Thức uống khác & Mới',
+        icon: '🥤',
+        color: '#B71C1C',
+        glass: 'Phục vụ nguyên lon kèm ly đá',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Coca', amount: 1, unit: 'lon' }
+        ],
+        steps: [
+          'Có trong bảng Menu mục Thức uống khác (không có slide định lượng riêng trong tài liệu)'
+        ],
+        requiredActions: [],
+        notes: 'Món có trên Menu, phục vụ trực tiếp theo yêu cầu khách hàng.'
+      },
+      {
+        id: 'nuoc_suoi',
+        name: 'Nước suối',
+        variant: 'Thức uống đóng chai',
+        category: 'Thức uống khác & Mới',
+        icon: '💧',
+        color: '#4FC3F7',
+        glass: 'Phục vụ nguyên chai',
+        strictOrder: false,
+        ingredients: [
+          { name: 'Nước suối', amount: 1, unit: 'chai' }
+        ],
+        steps: [
+          'Có trong bảng Menu mục Thức uống khác (không có slide định lượng riêng trong tài liệu)'
+        ],
+        requiredActions: [],
+        notes: 'Món có trên Menu, phục vụ trực tiếp theo yêu cầu khách hàng.'
+      },
+      {
+        id: 'bo_gia_dua_non',
+        name: 'Bơ già dừa non',
+        variant: 'Công thức bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🥑',
+        color: '#7CB342',
+        glass: 'Ly thủy tinh phân tầng',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Sữa tươi', amount: 40, unit: 'ml' },
+          { name: 'Cốt dừa', amount: 40, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Sốt bơ', amount: 80, unit: 'ml' },
+          { name: 'Dừa khô', amount: 10, unit: 'gr' }
+        ],
+        steps: [
+          'Cho sữa tươi, cốt dừa, sữa đặc vào ly và khuấy đều',
+          'Cho đá vào',
+          'Múc 2 muỗng (80 ml) sốt bơ vào tạo phân tầng',
+          'Rắc 10gr dừa khô đều trên bề mặt bơ'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Cách làm sốt bơ nền: 2 trái bơ chín + 200ml sữa tươi + 50ml đường xay mịn.'
+      },
+      {
+        id: 'latte_oreo',
+        name: 'Latte Oreo',
+        variant: 'Công thức bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🍪',
+        color: '#5D4037',
+        glass: 'Ly thủy tinh phân tầng',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Vụn bánh', amount: 15, unit: 'gr' },
+          { name: 'Sữa tươi', amount: 50, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Cafe phin', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Múc 1 muỗng đầy vụn bánh cho vào ly dầm nhẹ cho nhuyễn',
+          'Rót lần lượt sữa tươi, sữa đặc vào ly đong đánh đều cho vào ly',
+          'Cho đá vào đầy ly, đánh bọt 20ml cafe phin rót lên',
+          'Múc thêm 1 muỗng vụn bánh lên cùng (Tổng 2 muỗng / 15gr)'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour', 'garnish'],
+        notes: 'Vụn bánh Oreo tổng 2 muỗng (15gr).'
+      },
+      {
+        id: 'phin_dau_phong',
+        name: 'Phin đậu phộng',
+        variant: 'Công thức bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🥜',
+        color: '#A1887F',
+        glass: 'Ly thủy tinh phân tầng',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Bơ đậu phộng', amount: 10, unit: 'gr' },
+          { name: 'Sữa đặc', amount: 30, unit: 'ml' },
+          { name: 'Sữa tươi', amount: 50, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Cafe phin', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Múc 1 ít bơ đậu phộng quét thành ly',
+          'Lần lượt cho các nguyên liệu vào: Bơ (tổng 1 muỗng / 10gr), sữa đặc (30ml), sữa tươi (50ml) khuấy đều',
+          'Cho đá vào đầy ly, rót 20ml cf phin tạo bọt lên cùng'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour'],
+        notes: 'Lưu ý sữa đặc của Phin đậu phộng là 30ml (các món cà phê sữa khác là 25ml).'
+      },
+      {
+        id: 'phin_pho_mai',
+        name: 'Phin phô mai',
+        variant: 'Công thức bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🧀',
+        color: '#FBC02D',
+        glass: 'Ly cối thủy tinh 330ml',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Cà phê phin', amount: 40, unit: 'ml' },
+          { name: 'Sữa đặc', amount: 25, unit: 'ml' },
+          { name: 'Đá', amount: 150, unit: 'gr' },
+          { name: 'Kem Phô Mai', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Đong 40 ml cà phê phin vào ly',
+          'Cho sữa đặc vào và KHUẤY NHẸ cho tan sữa đặc, cho đá vào đầy ly',
+          'Cho hỗn hợp kem phô mai (20ml) rưới lên ly café sữa'
+        ],
+        requiredActions: ['stir', 'add_ice', 'layer_pour'],
+        notes: 'Tương tự Cà phê muối nhưng thay Kem muối bằng Kem Phô Mai 20ml và không rắc cacao.'
+      },
+      {
+        id: 'kem_dua',
+        name: 'Kem dừa',
+        variant: 'Món kem bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🥥',
+        color: '#FFFDE7',
+        glass: 'Ly kem đi kèm muỗng nhỏ',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Kem Viên Vị Dừa', amount: 4, unit: 'viên' },
+          { name: 'Dừa Vụn', amount: 10, unit: 'gr' },
+          { name: 'Bánh Quế', amount: 1, unit: 'cây' }
+        ],
+        steps: [
+          'Cho 4 viên kem dừa (130gr) vào ly',
+          'Rắc 1 muỗng (10gr) dừa vụn lên trên xung quanh kem',
+          'Cắm 1 bánh ốc quế vào viên kem phía sau'
+        ],
+        requiredActions: ['garnish'],
+        notes: '4 viên kem tương đương 130gr, 1 muỗng dừa vụn tương đương 10gr.'
+      },
+      {
+        id: 'kem_sau_rieng',
+        name: 'Kem sầu riêng',
+        variant: 'Món kem bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🍨',
+        color: '#FFF59D',
+        glass: 'Ly kem đi kèm muỗng nhỏ',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Kem Viên Vị Sầu Riêng', amount: 4, unit: 'viên' },
+          { name: 'Bánh Quế', amount: 1, unit: 'cây' }
+        ],
+        steps: [
+          'Cho 4 viên kem sầu riêng (130gr) vào ly',
+          'Cắm 1 bánh ốc quế vào viên kem phía sau'
+        ],
+        requiredActions: ['garnish'],
+        notes: '4 viên (130gr) + 1 cây bánh quế.'
+      },
+      {
+        id: 'kem_socola',
+        name: 'Kem socola',
+        variant: 'Món kem bổ sung 2026',
+        category: 'Thức uống khác & Mới',
+        icon: '🍫',
+        color: '#5D4037',
+        glass: 'Ly kem đi kèm muỗng nhỏ',
+        strictOrder: true,
+        ingredients: [
+          { name: 'Kem Viên Vị Socola', amount: 4, unit: 'viên' },
+          { name: 'Bánh Quế', amount: 1, unit: 'cây' }
+        ],
+        steps: [
+          'Cho 4 viên kem socola (130gr) vào ly',
+          'Cắm 1 bánh ốc quế vào viên kem phía sau'
+        ],
+        requiredActions: ['garnish'],
+        notes: '4 viên (130gr) + 1 cây bánh quế.'
+      }
+    ];
+
+    // Batch Prep Reference Recipes (Shown in Study Notebook under "Sơ chế nguyên liệu nền")
+    const PREP_RECIPES = [
+      {
+        id: 'prep_tra_den',
+        name: 'Ủ Trà Đen (Cốt trà)',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '🫖',
+        glass: 'Ca đong & Túi lọc trà',
+        ingredients: [
+          { name: 'Trà đen', amount: 40, unit: 'gr' },
+          { name: 'Nước sôi', amount: 850, unit: 'ml' }
+        ],
+        steps: [
+          'Cân 40gr trà đen cho vào túi lọc trà',
+          'Đun sôi 850ml nước sôi vào ca đong, thả túi trà vào và bấm giờ ngâm 30 phút',
+          'Sau 15 phút ngâm, dùng túi trà đen đó cho thêm nước sôi sử dụng làm trà đá phục vụ khách'
+        ],
+        notes: 'Trà ngâm sử dụng trong vòng 16h và bảo quản ở nhiệt độ thường.'
+      },
+      {
+        id: 'prep_machiato',
+        name: 'Đánh Milk Foam Machiato',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '☁️',
+        glass: 'Ca đánh & Máy đánh trứng',
+        ingredients: [
+          { name: 'Sữa tươi', amount: 200, unit: 'ml' },
+          { name: 'Bột sữa', amount: 100, unit: 'gr' }
+        ],
+        steps: [
+          'Trộn 200ml sữa tươi lạnh và 100gr bột sữa lại với nhau',
+          'Dùng máy đánh trứng đánh tốc độ vừa phải trong khoảng 5 phút đến khi đặc mịn'
+        ],
+        notes: 'Bảo quản nhiệt độ lạnh, sử dụng trong khoảng 2-3 ngày.'
+      },
+      {
+        id: 'prep_kem_muoi',
+        name: 'Đánh Kem Muối',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '🧂',
+        glass: 'Ca đánh & Máy đánh trứng',
+        ingredients: [
+          { name: 'Sữa tươi', amount: 200, unit: 'ml' },
+          { name: 'Bột kem muối', amount: 100, unit: 'gr' }
+        ],
+        steps: [
+          'Trộn 200ml sữa tươi lạnh và 100gr bột kem muối',
+          'Dùng máy đánh trứng đánh khoảng 5 phút đến khi đặc mịn'
+        ],
+        notes: 'Bảo quản nhiệt độ lạnh, sử dụng trong 2-3 ngày.'
+      },
+      {
+        id: 'prep_suong_sao',
+        name: 'Nấu Sương Sáo Đen',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '⬛',
+        glass: 'Nồi nấu & 2 khay nhỏ',
+        ingredients: [
+          { name: 'Bột sương sáo', amount: 1, unit: 'gói' },
+          { name: 'Đường cát', amount: 100, unit: 'gr' },
+          { name: 'Nước lọc', amount: 1200, unit: 'ml' }
+        ],
+        steps: [
+          'Trộn bột và đường, cho từ từ vào ca 1200ml nước lọc khuấy đều',
+          'Bắc lên bếp đun đến khi sôi bớt lửa nhỏ vừa đun vừa khuấy đến khi đen và hơi sệt',
+          'Rót vào 2 khay nhỏ, để nguội cho vào tủ lạnh rồi cắt bằng dao gợn sóng (1 khay cắt 48 viên)'
+        ],
+        notes: 'Sau khi lạnh mới được cắt thành phẩm.'
+      },
+      {
+        id: 'prep_nuoc_duong',
+        name: 'Nấu Nước Đường',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '🍯',
+        glass: 'Chai thủy tinh / nhựa có nắp',
+        ingredients: [
+          { name: 'Đường', amount: 1, unit: 'kg' },
+          { name: 'Nước sôi', amount: 600, unit: 'ml' }
+        ],
+        steps: [
+          'Khuấy chung 1kg đường với 600ml nước sôi đều tay cho đến khi đường tan hoàn toàn, để nguội'
+        ],
+        notes: 'Bảo quản ở nhiệt độ thường, sử dụng trong vòng 15 ngày.'
+      },
+      {
+        id: 'prep_tran_chau',
+        name: 'Nấu Trân Châu',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '⚫',
+        glass: 'Nồi nấu trân châu, vá múc, vá lượt',
+        ingredients: [
+          { name: 'Trân châu', amount: 500, unit: 'gr' },
+          { name: 'Nước sôi', amount: 2250, unit: 'ml' }
+        ],
+        steps: [
+          'Đun sôi 2000-2500ml nước sôi (lửa to)',
+          'Cho 500gr trân châu (làm tơi) vào để lửa liu riu, khuấy 30s rồi đậy nắp nấu 25 phút',
+          'Tắt bếp đậy nắp ủ tiếp 25 phút',
+          'Rửa qua nước lạnh cho hết nhớt, đổ vào khay trộn 60ml nước đường'
+        ],
+        notes: 'Chỉ sử dụng trong ngày.'
+      },
+      {
+        id: 'prep_khuc_bach',
+        name: 'Nấu Khúc Bạch',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '⬜',
+        glass: 'Nồi nấu & Khay đựng',
+        ingredients: [
+          { name: 'Bột khúc bạch', amount: 200, unit: 'gr' },
+          { name: 'Đường cát', amount: 100, unit: 'gr' },
+          { name: 'Nước lọc', amount: 500, unit: 'ml' }
+        ],
+        steps: [
+          'Cho tất cả nguyên liệu vào khuấy đều và ủ 10 phút',
+          'Bật bếp vừa nấu vừa khuấy, vừa thấy dấu hiệu sôi nhẹ thì tắt bếp liền',
+          'Tạo màu: 1 muỗng bột cacao/matcha hòa 20ml nước sôi rót vào khuấy đều, để yên 5p rồi rót ra khay'
+        ],
+        notes: 'Để vào ngăn mát 1 ngày mới được sử dụng.'
+      },
+      {
+        id: 'prep_rau_cau_pho_mai',
+        name: 'Nấu Rau Câu Phô Mai',
+        variant: 'Sơ chế nguyên liệu nền',
+        category: 'Sơ chế nguyên liệu nền',
+        icon: '🧀',
+        glass: 'Khay đựng & Nồi nấu',
+        ingredients: [
+          { name: 'Bột rau câu', amount: 1, unit: 'gói' },
+          { name: 'Phô mai', amount: 3, unit: 'viên' },
+          { name: 'Đường cát', amount: 100, unit: 'gr' },
+          { name: 'Nước sôi', amount: 800, unit: 'ml' },
+          { name: 'Cà phê phin', amount: 20, unit: 'ml' }
+        ],
+        steps: [
+          'Cắt 1 viên phô mai vào mỗi khay (3 viên cho 3 khay)',
+          'Trộn đều bột rau câu và đường cát, đổ từ từ vào 800ml nước sôi vừa đổ vừa khuấy tan',
+          'Cho thêm 20ml cafe phin khuấy 2p rồi rót từ từ vào khay có sẵn phô mai, để nguội cho ngăn mát'
+        ],
+        notes: 'Bột và đường phải trộn đều trước khi cho vào nước sôi để không vón cục.'
+      }
+    ];
+
+    /* =========================================================================
+       2. INGREDIENT SHELF & NORMALIZATION RULES
+       ========================================================================= */
+    // Confirmed equivalent ingredient names from the Kofi Kai slides
+    const EQUIVALENT_GROUPS = [
+      ['cà phê máy', 'cà phê ro', 'cà phê ro 1'],
+      ['cà phê phin', 'cafe phin'],
+      ['nước đường', 'đường', 'đường nước'],
+      ['sữa tươi', 'sữa thanh trùng'],
+      ['sữa chua', 'yogurt'],
+      ['machiato', 'machi'],
+      ['hạt sen', 'sen hạt'],
+      ['đá', 'đá bi', 'đá viên'],
+      ['bột ca cao', 'bột cacao'],
+      ['nước nhãn ngâm', 'nước ngâm nhãn'],
+      ['nước sen ngâm', 'nước ngâm sen'],
+      ['tắc xí muội', 'tắc xí']
+    ];
+
+    function normalizeName(str) {
+      return str.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+
+    function areIngredientsEquivalent(nameA, nameB) {
+      const a = normalizeName(nameA);
+      const b = normalizeName(nameB);
+      if (a === b) return true;
+      for (const group of EQUIVALENT_GROUPS) {
+        if (group.includes(a) && group.includes(b)) return true;
+      }
+      return false;
+    }
+
+    // Master Shelf Catalog (with cute icons, liquid colors, categories & default units)
+    const SHELF_ITEMS = [
+      // Cà phê & Bột
+      { name: 'Cà phê máy', cat: 'Cà phê & Bột', icon: '🫘', defaultUnit: 'gr', presets: [9, 18, 36], color: '#3E2723' },
+      { name: 'Cà phê phin', cat: 'Cà phê & Bột', icon: '☕', defaultUnit: 'ml', presets: [10, 20, 40, 80], color: '#2C1810' },
+      { name: 'Cold brew', cat: 'Cà phê & Bột', icon: '🍾', defaultUnit: 'ml', presets: [100, 1], color: '#4E342E' },
+      { name: 'Bột matcha', cat: 'Cà phê & Bột', icon: '🍵', defaultUnit: 'gr', presets: [0.5, 3, 1.4, 1.5], color: '#689F38' },
+      { name: 'Bột cacao', cat: 'Cà phê & Bột', icon: '🍫', defaultUnit: 'gr', presets: [3, 4, 10], color: '#5D4037' },
+      { name: 'Bột Frappe', cat: 'Cà phê & Bột', icon: '❄️', defaultUnit: 'gr', presets: [7], color: '#F5F5F5' },
+
+      // Sữa & Kem
+      { name: 'Sữa đặc', cat: 'Sữa & Kem', icon: '🥛', defaultUnit: 'ml', presets: [25, 30, 50], color: '#FFF8E1' },
+      { name: 'Sữa tươi', cat: 'Sữa & Kem', icon: '🍶', defaultUnit: 'ml', presets: [40, 50, 80, 100, 160], color: '#FFFFFF' },
+      { name: 'Sữa dawn', cat: 'Sữa & Kem', icon: '🧴', defaultUnit: 'ml', presets: [30], color: '#FFFDE7' },
+      { name: 'Machiato', cat: 'Sữa & Kem', icon: '☁️', defaultUnit: 'ml', presets: [20, 30], color: '#FFFDF7' },
+      { name: 'Kem Muối', cat: 'Sữa & Kem', icon: '🧂', defaultUnit: 'ml', presets: [20], color: '#F5EFE6' },
+      { name: 'Kem Phô Mai', cat: 'Sữa & Kem', icon: '🧀', defaultUnit: 'ml', presets: [20], color: '#FFF9C4' },
+      { name: 'Bông Kem', cat: 'Sữa & Kem', icon: '🍦', defaultUnit: 'bông', presets: [1], color: '#FFFFFF' },
+      { name: 'Sữa chua', cat: 'Sữa & Kem', icon: '🍨', defaultUnit: 'hủ', presets: [1], color: '#FFFDE7' },
+      { name: 'Cốt dừa', cat: 'Sữa & Kem', icon: '🥥', defaultUnit: 'ml', presets: [40], color: '#FAFAFA' },
+
+      // Trà & Nước
+      { name: 'Trà Lài', cat: 'Trà & Nước', icon: '🌼', defaultUnit: 'ml', presets: [100, 150], color: '#E6EE9C' },
+      { name: 'Trà đen', cat: 'Trà & Nước', icon: '🍂', defaultUnit: 'ml', presets: [100], color: '#A1887F' },
+      { name: 'Trà gạo', cat: 'Trà & Nước', icon: '🌾', defaultUnit: 'ml', presets: [120], color: '#D7CCC8' },
+      { name: 'Trà lipton', cat: 'Trà & Nước', icon: '🏷️', defaultUnit: 'gói', presets: [1], color: '#FFB300' },
+      { name: 'Trà sữa', cat: 'Trà & Nước', icon: '🧋', defaultUnit: 'ml', presets: [150, 200], color: '#C68B59' },
+      { name: 'Nước sôi', cat: 'Trà & Nước', icon: '♨️', defaultUnit: 'ml', presets: [20, 30, 50, 100, 150, 180], color: '#E0F7FA' },
+      { name: 'Nước lọc', cat: 'Trà & Nước', icon: '💧', defaultUnit: 'ml', presets: [50, 60, 100, 150], color: '#E1F5FE' },
+
+      // Đường, Mứt & Syrup
+      { name: 'Nước đường', cat: 'Đường & Mứt', icon: '🍯', defaultUnit: 'ml', presets: [10, 15, 20, 30, 40], color: '#FFF9C4' },
+      { name: 'Đường Nâu', cat: 'Đường & Mứt', icon: '🤎', defaultUnit: 'ml', presets: [20], color: '#5D4037' },
+      { name: 'Mật ong', cat: 'Đường & Mứt', icon: '🐝', defaultUnit: 'ml', presets: [10, 20], color: '#FFB300' },
+      { name: 'Mứt dâu', cat: 'Đường & Mứt', icon: '🍓', defaultUnit: 'ml', presets: [20, 30], color: '#E53935' },
+      { name: 'Syrup dâu', cat: 'Đường & Mứt', icon: '🍒', defaultUnit: 'ml', presets: [10, 20, 30], color: '#F43F5E' },
+      { name: 'Mứt Việt quất', cat: 'Đường & Mứt', icon: '🫐', defaultUnit: 'ml', presets: [20, 30], color: '#5E35B1' },
+      { name: 'Mứt Nho', cat: 'Đường & Mứt', icon: '🍇', defaultUnit: 'ml', presets: [30], color: '#7CB342' },
+      { name: 'Syrup vải', cat: 'Đường & Mứt', icon: '🍈', defaultUnit: 'ml', presets: [10], color: '#F8BBD0' },
+      { name: 'Mứt Vải', cat: 'Đường & Mứt', icon: '🌸', defaultUnit: 'ml', presets: [10], color: '#F48FB1' },
+      { name: 'Syrup đào', cat: 'Đường & Mứt', icon: '🍑', defaultUnit: 'ml', presets: [10], color: '#FFAB91' },
+      { name: 'Mứt Đào', cat: 'Đường & Mứt', icon: '🧡', defaultUnit: 'ml', presets: [10], color: '#FF7043' },
+      { name: 'Nước nhãn ngâm', cat: 'Đường & Mứt', icon: '🥫', defaultUnit: 'ml', presets: [20, 30], color: '#FFE082' },
+      { name: 'Nước sen ngâm', cat: 'Đường & Mứt', icon: '🪷', defaultUnit: 'ml', presets: [20, 30], color: '#FFE0B2' },
+      { name: 'Tắc xí muội', cat: 'Đường & Mứt', icon: '🍋', defaultUnit: 'gr', presets: [60, 80], color: '#FBC02D' },
+      { name: 'Sốt bơ', cat: 'Đường & Mứt', icon: '🥑', defaultUnit: 'ml', presets: [80], color: '#8BC34A' },
+      { name: 'Bơ đậu phộng', cat: 'Đường & Mứt', icon: '🥜', defaultUnit: 'gr', presets: [10], color: '#A1887F' },
+      { name: 'Muối', cat: 'Đường & Mứt', icon: '🧂', defaultUnit: 'ít', presets: [1], color: '#FFFFFF' },
+
+      // Trái cây & Topping
+      { name: 'Trân châu', cat: 'Topping & Trái cây', icon: '⚫', defaultUnit: 'gr', presets: [60], color: '#212121' },
+      { name: 'Trân châu olong', cat: 'Topping & Trái cây', icon: '🟤', defaultUnit: 'vá', presets: [1], color: '#6D4C41' },
+      { name: 'Rau câu phô mai', cat: 'Topping & Trái cây', icon: '🟨', defaultUnit: 'viên', presets: [1, 2], color: '#FFF176' },
+      { name: 'Khúc bạch', cat: 'Topping & Trái cây', icon: '⬜', defaultUnit: 'viên', presets: [1], color: '#FFFFFF' },
+      { name: 'Sương sáo', cat: 'Topping & Trái cây', icon: '⬛', defaultUnit: 'viên', presets: [2, 5], color: '#1A1A1A' },
+      { name: 'Hạt sen', cat: 'Topping & Trái cây', icon: '🪷', defaultUnit: 'hạt', presets: [6, 8, 10], color: '#FFE0B2' },
+      { name: 'Hạt đác', cat: 'Topping & Trái cây', icon: '🤍', defaultUnit: 'viên', presets: [4], color: '#E1F5FE' },
+      { name: 'Nhãn ngâm', cat: 'Topping & Trái cây', icon: '🟡', defaultUnit: 'trái', presets: [1, 6], color: '#FFF9C4' },
+      { name: 'Vải ngâm', cat: 'Topping & Trái cây', icon: '🍈', defaultUnit: 'trái', presets: [1, 2], color: '#FCE4EC' },
+      { name: 'Đào Ngâm', cat: 'Topping & Trái cây', icon: '🍑', defaultUnit: 'miếng', presets: [1, 2], color: '#FFCC80' },
+      { name: 'Nho trái', cat: 'Topping & Trái cây', icon: '🍇', defaultUnit: 'trái', presets: [2], color: '#AED581' },
+      { name: 'Trái cây', cat: 'Topping & Trái cây', icon: '🍍', defaultUnit: 'vá', presets: [1.5], color: '#FFCA28' },
+      { name: 'Chanh', cat: 'Topping & Trái cây', icon: '🍋', defaultUnit: 'ml', presets: [10, 15, 20, 0.5], color: '#D4E157' },
+      { name: 'Vỏ chanh', cat: 'Topping & Trái cây', icon: '🟢', defaultUnit: 'trái', presets: [0.5], color: '#9CCC65' },
+      { name: 'Tắc', cat: 'Topping & Trái cây', icon: '🟢', defaultUnit: 'trái', presets: [1], color: '#8BC34A' },
+      { name: 'Trái cam', cat: 'Topping & Trái cây', icon: '🍊', defaultUnit: 'trái', presets: [1, 2], color: '#FF9800' },
+      { name: 'Bánh Oreo', cat: 'Topping & Trái cây', icon: '🍪', defaultUnit: 'cái', presets: [2], color: '#3E2723' },
+      { name: 'Vụn bánh', cat: 'Topping & Trái cây', icon: '🤎', defaultUnit: 'gr', presets: [15], color: '#4E342E' },
+      { name: 'Kẹo colia', cat: 'Topping & Trái cây', icon: '🍬', defaultUnit: 'viên', presets: [2], color: '#B2EBF2' },
+      { name: 'Dừa khô', cat: 'Topping & Trái cây', icon: '🥥', defaultUnit: 'gr', presets: [10], color: '#FFF8E1' },
+
+      // Đá & Đồ đóng chai / Kem
+      { name: 'Đá bi', cat: 'Đá & Khác', icon: '🧊', defaultUnit: 'gr', presets: [100, 150, 200, 250], color: '#E0F2FE' },
+      { name: 'Kem Viên Vị Dừa', cat: 'Đá & Khác', icon: '🍨', defaultUnit: 'viên', presets: [4], color: '#FFFDE7' },
+      { name: 'Kem Viên Vị Sầu Riêng', cat: 'Đá & Khác', icon: '🍦', defaultUnit: 'viên', presets: [4], color: '#FFF59D' },
+      { name: 'Kem Viên Vị Socola', cat: 'Đá & Khác', icon: '🍫', defaultUnit: 'viên', presets: [4], color: '#5D4037' },
+      { name: 'Bánh Quế', cat: 'Đá & Khác', icon: '🥖', defaultUnit: 'cây', presets: [1], color: '#D4A373' },
+      { name: 'Sting', cat: 'Đá & Khác', icon: '🥤', defaultUnit: 'chai', presets: [1], color: '#E53935' },
+      { name: 'Redbull', cat: 'Đá & Khác', icon: '🥫', defaultUnit: 'lon', presets: [1], color: '#FBC02D' },
+      { name: 'Coca', cat: 'Đá & Khác', icon: '🥤', defaultUnit: 'lon', presets: [1], color: '#B71C1C' },
+      { name: 'Nước suối', cat: 'Đá & Khác', icon: '💧', defaultUnit: 'chai', presets: [1], color: '#4FC3F7' }
+    ];
+
+    const ALL_UNITS = ['ml', 'gr', 'viên', 'trái', 'miếng', 'gói', 'chai', 'lon', 'hủ', 'cái', 'cây', 'hạt', 'vá', 'bông', 'muỗng cf', 'ít'];
+
+    const BARISTA_ACTIONS = [
+      { id: 'extract_espresso', label: 'Chiết xuất Espresso', icon: '☕', anim: 'animate-swirl' },
+      { id: 'steam_milk', label: 'Đánh nóng/foam sữa', icon: '♨️', anim: 'animate-swirl' },
+      { id: 'stir', label: 'Khuấy đều / Khuấy nhẹ', icon: '🥄', anim: 'animate-swirl' },
+      { id: 'add_ice', label: 'Cho đá vào ly / cối', icon: '🧊', anim: 'animate-pop' },
+      { id: 'shake', label: 'Lắc Shaker', icon: '🍸', anim: 'animate-shake-cup' },
+      { id: 'blend', label: 'Xay máy đá xay (30-45s)', icon: '🌪️', anim: 'animate-blend' },
+      { id: 'layer_pour', label: 'Rót phân tầng lên trên', icon: '🌊', anim: 'animate-swirl' },
+      { id: 'garnish', label: 'Topping & Trang trí (Decor)', icon: '🌿', anim: 'animate-pop' }
+    ];
+
+    const CUSTOMERS = [
+      { name: 'Bạn Linh (Sinh viên)', avatar: '👧' },
+      { name: 'Anh Minh (Văn phòng)', avatar: '👨🏻‍💼' },
+      { name: 'Chị Thảo (Designer)', avatar: '👩🏻‍🎨' },
+      { name: 'Bé Bông (Khách quen)', avatar: '🧒' },
+      { name: 'Trainer Kofi Kai', avatar: '🧑‍🏫' },
+      { name: 'Bạn Khoa (Coder)', avatar: '🧑🏻‍💻' },
+      { name: 'Cô Lan (Giáo viên)', avatar: '👩🏻‍🏫' }
+    ];
+
+    const ACHIEVEMENTS_DEF = [
+      { id: 'first_drink', title: 'Ly Nước Đầu Tay', desc: 'Hoàn thành ly đồ uống đầu tiên trong quán.', icon: '🧋', check: (s) => s.totalAttempts >= 1 },
+      { id: 'perfect_100', title: 'Chuẩn Không Cần Chỉnh', desc: 'Đạt điểm tuyệt đối 100/100 cho một món.', icon: '💯', check: (s) => s.perfectCount >= 1 },
+      { id: 'combo_5', title: 'Tay Pha Thần Tốc', desc: 'Đạt chuỗi đúng liên tiếp 5 món trong Giờ Cao Điểm.', icon: '⚡', check: (s) => s.bestCombo >= 5 },
+      { id: 'master_10', title: 'Thuộc Lòng 10 Món', desc: 'Thành thạo ít nhất 10 công thức trong menu.', icon: '📚', check: (s) => countMastered(s) >= 10 },
+      { id: 'master_25', title: 'Chuyên Gia Kofi Kai', desc: 'Thành thạo ít nhất 25 công thức trong menu.', icon: '🌟', check: (s) => countMastered(s) >= 25 },
+      { id: 'exam_pass', title: 'Vượt Vũ Môn Thực Hành', desc: 'Hoàn thành bài kiểm tra thực hành với điểm >= 80/100.', icon: '🎓', check: (s) => (s.lastExamScore !== null && s.lastExamScore >= 80) },
+      { id: 'exam_ace', title: 'Thủ Khoa Pha Chế', desc: 'Đạt điểm kiểm tra thực hành >= 95/100.', icon: '👑', check: (s) => (s.lastExamScore !== null && s.lastExamScore >= 95) },
+      { id: 'xp_1000', title: 'Barista Kỳ Cựu', desc: 'Tích lũy 1.000 điểm kinh nghiệm (XP).', icon: '🏅', check: (s) => s.xp >= 1000 }
+    ];
+
+    /* =========================================================================
+       3. WEB AUDIO API SOUND ENGINE (CUTE PASTEL FEEDBACK SOUNDS)
+       ========================================================================= */
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) audioCtx = new AudioContext();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSound(type) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+
+        if (type === 'pop') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(780, now + 0.08);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        } else if (type === 'action') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(340, now);
+          osc.frequency.exponentialRampToValueAtTime(520, now + 0.14);
+          gain.gain.setValueAtTime(0.16, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.15);
+        } else if (type === 'success') {
+          const notes = [523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.07);
+            gain.gain.setValueAtTime(0.16, now + idx * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.07 + 0.25);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.07);
+            osc.stop(now + idx * 0.07 + 0.25);
+          });
+        } else if (type === 'error') {
+          const notes = [330, 261.63];
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+            gain.gain.setValueAtTime(0.18, now + idx * 0.12);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.22);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.12);
+            osc.stop(now + idx * 0.12 + 0.22);
+          });
+        }
+      } catch (e) {
+        // Ignore audio errors on restricted browsers
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('btn-sound').textContent = soundEnabled ? '🔊' : '🔇';
+      showToast(soundEnabled ? 'Đã bật âm thanh hiệu ứng' : 'Đã tắt âm thanh');
+    }
+
+    /* =========================================================================
+       4. PERSISTENT LEARNING STATE (localStorage)
+       ========================================================================= */
+    const STORAGE_KEY = 'kofikai_barista_progress_v1';
+
+    function getDefaultState() {
+      return {
+        xp: 0,
+        totalAttempts: 0,
+        correctAttempts: 0,
+        perfectCount: 0,
+        bestCombo: 0,
+        lastExamScore: null,
+        drinkStats: {}, // { [recipeId]: { status: 'unlearned'|'learning'|'review'|'mastered', attempts: 0, correct: 0, lastScore: null, manualReview: false } }
+        missedIngredients: {}, // { [ingName]: count }
+        wrongQuantities: {}, // { [recipeName + ' - ' + ingName]: count }
+        unlockedAchievements: []
+      };
+    }
+
+    let userState = loadState();
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return getDefaultState();
+        return { ...getDefaultState(), ...JSON.parse(raw) };
+      } catch (e) {
+        return getDefaultState();
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {}
+      updateHeaderStats();
+    }
+
+    function getDrinkStat(recipeId) {
+      if (!userState.drinkStats[recipeId]) {
+        userState.drinkStats[recipeId] = {
+          status: 'unlearned',
+          attempts: 0,
+          correct: 0,
+          lastScore: null,
+          manualReview: false
+        };
+      }
+      return userState.drinkStats[recipeId];
+    }
+
+    function countMastered(state = userState) {
+      return RECIPES.filter(r => state.drinkStats[r.id]?.status === 'mastered').length;
+    }
+
+    function addXP(amount) {
+      userState.xp += amount;
+      checkAchievements();
+      saveState();
+    }
+
+    function checkAchievements() {
+      let newlyUnlocked = false;
+      for (const ach of ACHIEVEMENTS_DEF) {
+        if (!userState.unlockedAchievements.includes(ach.id) && ach.check(userState)) {
+          userState.unlockedAchievements.push(ach.id);
+          newlyUnlocked = true;
+          showToast(`🏆 Mở khóa huy hiệu: ${ach.title}!`);
+        }
+      }
+      if (newlyUnlocked) playSound('success');
+    }
+
+    /* =========================================================================
+       5. GLOBAL APP & GAMEPLAY RUNTIME STATE
+       ========================================================================= */
+    let currentMode = 'study'; // 'study' | 'practice' | 'rush' | 'exam' | 'weak'
+    let studySubMode = 'notebook'; // 'notebook' | 'flashcard'
+    let selectedStudyCategory = 'Tất cả';
+    let selectedStudyRecipeId = RECIPES[0].id;
+    let selectedShelfCategory = 'Tất cả';
+
+    // Flashcard state
+    let flashcardDeck = [...RECIPES];
+    let flashcardIndex = 0;
+
+    // Barista Station Current Order & Player Workspace
+    let currentOrder = null;
+    let currentCustomer = CUSTOMERS[0];
+    let selectedIngredients = []; // [{ name, amount, unit, color, icon }]
+    let selectedActions = []; // [actionId, ...]
+    let currentHintLevel = 0;
+
+    // Rush Hour state
+    let rushScore = 0;
+    let rushCombo = 0;
+    let rushTimeLimit = 180; // seconds (0 = unlimited)
+    let rushTimeLeft = 180;
+    let rushTimerInterval = null;
+    let rushActive = false;
+
+    // Exam state
+    let examQueue = [];
+    let examCurrentIndex = 0;
+    let examSubmissions = []; // [{ recipe, userIngredients, userActions, result }]
+    let examInProgress = false;
+
+    // Weak Drill state
+    let weakDrillQueue = [];
+
+    /* =========================================================================
+       6. UI NAVIGATION & HEADER UPDATES
+       ========================================================================= */
+    function updateHeaderStats() {
+      const xp = userState.xp;
+      const level = Math.floor(xp / 200) + 1;
+      const progress = ((xp % 200) / 200) * 100;
+      const titles = ['Tập Sự Quầy Bar', 'Nhân Viên Pha Chế', 'Barista Chuyên Nghiệp', 'Trưởng Quầy Kofi Kai', 'Bậc Thầy Pha Chế'];
+      const title = titles[Math.min(level - 1, titles.length - 1)];
+
+      document.getElementById('ui-level-title').textContent = `Lv.${level} ${title}`;
+      document.getElementById('ui-xp-text').textContent = `${xp} XP`;
+      document.getElementById('ui-xp-bar').style.width = `${Math.max(8, progress)}%`;
+
+      document.getElementById('ui-mastered-badge').textContent = countMastered();
+      document.getElementById('ui-total-badge').textContent = RECIPES.length;
+      document.getElementById('ui-ach-count').textContent = `${userState.unlockedAchievements.length}/${ACHIEVEMENTS_DEF.length}`;
+
+      const weakCount = RECIPES.filter(r => {
+        const st = getDrinkStat(r.id);
+        return st.status === 'review' || (st.lastScore !== null && st.lastScore < 80);
+      }).length;
+      document.getElementById('ui-weak-pill').textContent = weakCount;
+    }
+
+    function switchMode(mode) {
+      currentMode = mode;
+      stopRushTimer();
+
+      // Highlight active tab
+      document.querySelectorAll('.mode-tab').forEach(btn => {
+        const isActive = btn.dataset.mode === mode;
+        btn.className = `mode-tab shrink-0 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold flex items-center gap-1.5 transition-all ${
+          isActive
+            ? 'bg-[#4A3222] text-white shadow-sm'
+            : 'bg-[#FAF3E8] text-[#6E5038] hover:bg-[#F3E5D0]'
+        }`;
+      });
+
+      // Hide all views
+      document.querySelectorAll('.mode-view').forEach(v => v.classList.add('hidden'));
+
+      if (mode === 'study') {
+        document.getElementById('view-study').classList.remove('hidden');
+        renderStudyView();
+      } else if (mode === 'weak') {
+        document.getElementById('view-weak').classList.remove('hidden');
+        renderWeakView();
+      } else {
+        document.getElementById('view-station').classList.remove('hidden');
+        setupStationMode(mode);
+      }
+    }
+
+    /* =========================================================================
+       7. MODE 1: SỔ TAY CÔNG THỨC & FLASHCARD
+       ========================================================================= */
+    function setStudySubMode(sub) {
+      studySubMode = sub;
+      const btnNb = document.getElementById('btn-sub-notebook');
+      const btnFc = document.getElementById('btn-sub-flashcard');
+      if (sub === 'notebook') {
+        btnNb.className = 'btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#4A3222] text-white';
+        btnFc.className = 'btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#FDE8E8] text-[#9D174D] border border-[#FBCFE8]';
+        document.getElementById('study-notebook-panel').classList.remove('hidden');
+        document.getElementById('study-flashcard-panel').classList.add('hidden');
+      } else {
+        btnFc.className = 'btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#9D174D] text-white';
+        btnNb.className = 'btn-pastel px-4 py-2 rounded-2xl text-sm font-extrabold bg-[#FAF3E8] text-[#4A3222] border border-[#E6D5C3]';
+        document.getElementById('study-notebook-panel').classList.add('hidden');
+        document.getElementById('study-flashcard-panel').classList.remove('hidden');
+        refreshFlashcardDeck();
+      }
+    }
+
+    function getFilteredStudyRecipes() {
+      const query = normalizeName(document.getElementById('study-search').value || '');
+      const statusFilter = document.getElementById('study-status-filter').value;
+      const allItems = selectedStudyCategory === 'Sơ chế nguyên liệu nền'
+        ? PREP_RECIPES
+        : (selectedStudyCategory === 'Tất cả' ? [...RECIPES, ...PREP_RECIPES] : RECIPES);
+
+      return allItems.filter(r => {
+        if (selectedStudyCategory !== 'Tất cả' && selectedStudyCategory !== 'Sơ chế nguyên liệu nền' && r.category !== selectedStudyCategory) {
+          return false;
+        }
+        if (query) {
+          const matchName = normalizeName(r.name).includes(query) || normalizeName(r.variant).includes(query);
+          const matchIng = r.ingredients.some(i => normalizeName(i.name).includes(query));
+          if (!matchName && !matchIng) return false;
+        }
+        if (statusFilter !== 'all' && !r.id.startsWith('prep_')) {
+          const st = getDrinkStat(r.id).status;
+          if (st !== statusFilter) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderStudyCategories() {
+      const cats = ['Tất cả', 'Cà phê', 'Đặc biệt', 'Trà sữa', 'Trà giải nhiệt', 'Cold Brew', 'Sữa chua', 'Đá xay', 'Thức uống khác & Mới', 'Sơ chế nguyên liệu nền'];
+      const container = document.getElementById('study-categories');
+      container.innerHTML = cats.map(c => {
+        const active = selectedStudyCategory === c;
+        return `<button onclick="selectStudyCategory('${c}')" class="shrink-0 px-3 py-1.5 rounded-full text-xs font-extrabold border transition-all ${
+          active
+            ? 'bg-[#C68B59] text-white border-[#A86F3E]'
+            : 'bg-white text-[#6E5038] border-[#E6D5C3] hover:bg-[#FAF3E8]'
+        }">${c}</button>`;
+      }).join('');
+    }
+
+    function selectStudyCategory(cat) {
+      selectedStudyCategory = cat;
+      renderStudyView();
+      if (studySubMode === 'flashcard') refreshFlashcardDeck();
+    }
+
+    function getStatusBadgeHTML(status) {
+      const map = {
+        unlearned: { text: '⚪ Chưa học', cls: 'bg-gray-100 text-gray-600' },
+        learning: { text: '🔵 Đang học', cls: 'bg-sky-100 text-sky-700' },
+        review: { text: '🟠 Cần ôn tập', cls: 'bg-amber-100 text-amber-800' },
+        mastered: { text: '🟢 Đã thành thạo', cls: 'bg-emerald-100 text-emerald-700' }
+      };
+      const item = map[status] || map.unlearned;
+      return `<span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full ${item.cls}">${item.text}</span>`;
+    }
+
+    function renderStudyView() {
+      renderStudyCategories();
+      const list = getFilteredStudyRecipes();
+      const listEl = document.getElementById('study-recipe-list');
+
+      if (list.length === 0) {
+        listEl.innerHTML = `<div class="text-center py-10 text-sm text-[#8C6D53]">Không tìm thấy món phù hợp với bộ lọc.</div>`;
+        return;
+      }
+
+      if (!list.some(r => r.id === selectedStudyRecipeId)) {
+        selectedStudyRecipeId = list[0].id;
+      }
+
+      listEl.innerHTML = list.map(r => {
+        const isSelected = r.id === selectedStudyRecipeId;
+        const isPrep = r.id.startsWith('prep_');
+        const st = isPrep ? null : getDrinkStat(r.id);
+        return `
+          <div onclick="selectStudyRecipe('${r.id}')" class="cursor-pointer p-3 rounded-2xl border-2 transition-all flex items-center justify-between gap-2 ${
+            isSelected
+              ? 'bg-[#FFF7ED] border-[#C68B59] shadow-xs'
+              : 'bg-[#FFFDF9] border-[#F3E8DC] hover:border-[#D7B89C]'
+          }">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="text-2xl shrink-0">${r.icon}</span>
+              <div class="min-w-0">
+                <div class="font-extrabold text-sm text-[#4A3222] truncate">${r.name}</div>
+                <div class="text-[11px] font-bold text-[#8C6D53] truncate">${r.variant} • ${r.category}</div>
+              </div>
+            </div>
+            <div class="shrink-0">
+              ${isPrep ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">Sơ chế</span>' : getStatusBadgeHTML(st.status)}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      renderStudyDetail();
+    }
+
+    function selectStudyRecipe(id) {
+      selectedStudyRecipeId = id;
+      playSound('pop');
+      renderStudyView();
+    }
+
+    function renderStudyDetail() {
+      const all = [...RECIPES, ...PREP_RECIPES];
+      const recipe = all.find(r => r.id === selectedStudyRecipeId) || all[0];
+      const isPrep = recipe.id.startsWith('prep_');
+      const st = isPrep ? null : getDrinkStat(recipe.id);
+      const detailEl = document.getElementById('study-recipe-detail');
+
+      detailEl.innerHTML = `
+        <div class="space-y-4 animate-pop">
+          <div class="flex flex-wrap items-start justify-between gap-3 border-b border-[#EFE2D3] pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3] flex items-center justify-center text-3xl">
+                ${recipe.icon}
+              </div>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-xs font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-[#E0F2FE] text-[#0369A1]">${recipe.category}</span>
+                  ${!isPrep ? getStatusBadgeHTML(st.status) : ''}
+                </div>
+                <h2 class="font-display font-extrabold text-xl sm:text-2xl text-[#4A3222] mt-1">${recipe.name}</h2>
+                <p class="text-xs sm:text-sm font-bold text-[#8C6D53]">${recipe.variant} • ${recipe.glass}</p>
+              </div>
+            </div>
+
+            ${!isPrep ? `
+              <div class="flex flex-wrap items-center gap-2">
+                <button onclick="markRecipeStatus('${recipe.id}', 'mastered')" class="btn-pastel px-3 py-2 rounded-2xl bg-[#DCFCE7] hover:bg-[#BBF7D0] text-[#166534] border border-[#86EFAC] text-xs font-extrabold">
+                  ✅ Học xong (Thuộc)
+                </button>
+                <button onclick="markRecipeStatus('${recipe.id}', 'review')" class="btn-pastel px-3 py-2 rounded-2xl bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] border border-[#FCD34D] text-xs font-extrabold">
+                  🔖 Đánh dấu cần ôn
+                </button>
+                <button onclick="practiceSpecificRecipe('${recipe.id}')" class="btn-pastel px-3 py-2 rounded-2xl bg-[#4A3222] text-white text-xs font-extrabold">
+                  🧋 Pha thử ngay
+                </button>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Ingredients Table -->
+          <div>
+            <h3 class="font-display font-extrabold text-sm uppercase text-[#7C4A27] mb-2 flex items-center gap-1.5">
+              <span>📋</span> Thành phần nguyên liệu & Định lượng chuẩn
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              ${recipe.ingredients.map((ing, idx) => `
+                <div class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3]">
+                  <span class="text-sm font-bold text-[#4A3222]">${idx + 1}. ${ing.name}</span>
+                  <span class="text-sm font-extrabold px-2.5 py-0.5 rounded-xl bg-white text-[#B45309] border border-[#FDE68A]">
+                    ${ing.amount} ${ing.unit}
+                  </span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-display font-extrabold text-sm uppercase text-[#7C4A27] flex items-center gap-1.5">
+                <span>👨‍🍳</span> Quy trình & Thứ tự thực hiện
+              </h3>
+              ${!isPrep ? (
+                recipe.strictOrder
+                  ? '<span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#B91C1C]">⚠️ Bắt buộc đúng thứ tự</span>'
+                  : '<span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#E6F4EA] text-[#1E6B38]">✨ Không bắt buộc thứ tự cho nguyên liệu</span>'
+              ) : ''}
+            </div>
+            <ol class="space-y-2">
+              ${recipe.steps.map((step, i) => `
+                <li class="flex items-start gap-2.5 text-sm bg-[#FFFDF9] p-2.5 rounded-2xl border border-[#F3E8DC]">
+                  <span class="w-6 h-6 rounded-full bg-[#C68B59] text-white text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5">${i + 1}</span>
+                  <span class="text-[#4A3222] font-semibold leading-relaxed">${step}</span>
+                </li>
+              `).join('')}
+            </ol>
+          </div>
+
+          <!-- Notes -->
+          <div class="bg-[#FEF3C7]/70 rounded-2xl p-3.5 border border-[#FCD34D] text-xs sm:text-sm text-[#78350F]">
+            <span class="font-extrabold">📌 Yêu cầu kỹ thuật & Ghi chú:</span> ${recipe.notes}
+          </div>
+        </div>
+      `;
+    }
+
+    function markRecipeStatus(id, status) {
+      const st = getDrinkStat(id);
+      st.status = status;
+      st.manualReview = (status === 'review');
+      if (status === 'mastered') {
+        addXP(15);
+        playSound('success');
+        showToast('🌟 Đã đánh dấu thành thạo! (+15 XP)');
+      } else {
+        playSound('pop');
+        showToast('🔖 Đã thêm vào danh sách cần ôn tập!');
+      }
+      saveState();
+      renderStudyView();
+    }
+
+    function practiceSpecificRecipe(id) {
+      const recipe = RECIPES.find(r => r.id === id);
+      if (!recipe) return;
+      switchMode('practice');
+      loadOrder(recipe);
+    }
+
+    // Flashcard Logic
+    function refreshFlashcardDeck() {
+      const filtered = getFilteredStudyRecipes().filter(r => !r.id.startsWith('prep_'));
+      flashcardDeck = filtered.length > 0 ? [...filtered] : [...RECIPES];
+      flashcardIndex = 0;
+      renderFlashcard();
+    }
+
+    function renderFlashcard() {
+      const card = flashcardDeck[flashcardIndex];
+      if (!card) return;
+      document.getElementById('flashcard-wrapper').classList.remove('flipped');
+      document.getElementById('fc-index').textContent = flashcardIndex + 1;
+      document.getElementById('fc-total').textContent = flashcardDeck.length;
+
+      document.getElementById('fc-front-cat').textContent = card.category;
+      document.getElementById('fc-front-icon').textContent = card.icon;
+      document.getElementById('fc-front-title').textContent = card.name;
+      document.getElementById('fc-front-variant').textContent = `${card.variant} • ${card.glass}`;
+      document.getElementById('fc-front-status').innerHTML = getStatusBadgeHTML(getDrinkStat(card.id).status);
+
+      document.getElementById('fc-back-title').textContent = `${card.name} (${card.variant})`;
+      document.getElementById('fc-back-content').innerHTML = `
+        <div class="bg-[#FAF3E8] p-3 rounded-2xl border border-[#E6D5C3]">
+          <div class="font-extrabold text-xs uppercase text-[#7C4A27] mb-1.5">Nguyên liệu & Định lượng:</div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+            ${card.ingredients.map(i => `<li class="font-bold text-[#4A3222]">• ${i.name}: <span class="text-[#B45309]">${i.amount} ${i.unit}</span></li>`).join('')}
+          </ul>
+        </div>
+        <div>
+          <div class="font-extrabold text-xs uppercase text-[#7C4A27] mb-1">Cách làm:</div>
+          <ol class="list-decimal pl-4 space-y-1 text-xs font-semibold text-[#4A3222]">
+            ${card.steps.map(s => `<li>${s}</li>`).join('')}
+          </ol>
+        </div>
+        <div class="text-xs bg-[#FEF3C7] p-2.5 rounded-xl text-[#92400E] font-semibold">
+          💡 ${card.notes}
+        </div>
+      `;
+    }
+
+    function flipFlashcard() {
+      document.getElementById('flashcard-wrapper').classList.toggle('flipped');
+      playSound('pop');
+    }
+
+    function nextFlashcard() {
+      flashcardIndex = (flashcardIndex + 1) % flashcardDeck.length;
+      renderFlashcard();
+    }
+
+    function prevFlashcard() {
+      flashcardIndex = (flashcardIndex - 1 + flashcardDeck.length) % flashcardDeck.length;
+      renderFlashcard();
+    }
+
+    function shuffleFlashcards() {
+      flashcardDeck.sort(() => Math.random() - 0.5);
+      flashcardIndex = 0;
+      playSound('action');
+      renderFlashcard();
+      showToast('🔀 Đã trộn ngẫu nhiên bộ thẻ!');
+    }
+
+    function rateFlashcard(remembered) {
+      const card = flashcardDeck[flashcardIndex];
+      const st = getDrinkStat(card.id);
+      if (remembered) {
+        st.status = st.status === 'mastered' ? 'mastered' : 'learning';
+        addXP(10);
+        playSound('success');
+        showToast('👍 Tuyệt vời! (+10 XP)');
+      } else {
+        st.status = 'review';
+        st.manualReview = true;
+        playSound('error');
+        showToast('📌 Đã đánh dấu cần ôn lại món này!');
+      }
+      saveState();
+      nextFlashcard();
+    }
+
+    /* =========================================================================
+       8. BARISTA WORKSTATION & SCORING ENGINE (MODES 2, 3, 4)
+       ========================================================================= */
+    function setupStationMode(mode) {
+      const banner = document.getElementById('station-banner');
+      const examSetup = document.getElementById('exam-setup-panel');
+      const examReport = document.getElementById('exam-report-panel');
+      const workspace = document.getElementById('barista-workspace');
+      const hintSec = document.getElementById('hint-section');
+
+      examSetup.classList.add('hidden');
+      examReport.classList.add('hidden');
+      workspace.classList.remove('hidden');
+      hintSec.classList.remove('hidden');
+
+      if (mode === 'practice') {
+        document.getElementById('btn-submit-label').textContent = 'Hoàn Thành Món & Chấm Điểm';
+        banner.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🧋</span>
+            <div>
+              <h2 class="font-display font-extrabold text-base text-[#4A3222]">Chế Độ Pha Chế Tự Do (Practice Mode)</h2>
+              <p class="text-xs text-[#7C5D43]">Tự nhớ công thức, lấy nguyên liệu, đong định lượng và thực hiện thao tác. Ưu tiên món bạn chưa thuộc!</p>
+            </div>
+          </div>
+          <button onclick="pickNextSmartOrder()" class="btn-pastel px-3.5 py-2 rounded-2xl bg-[#E0F2FE] text-[#0369A1] text-xs font-extrabold">
+            ⏭️ Đổi món khác
+          </button>
+        `;
+        pickNextSmartOrder();
+      } else if (mode === 'rush') {
+        rushScore = 0;
+        rushCombo = 0;
+        rushActive = true;
+        document.getElementById('btn-submit-label').textContent = 'Phục Vụ Nhanh!';
+        renderRushBanner();
+        startRushTimer();
+        pickNextSmartOrder();
+      } else if (mode === 'exam') {
+        examInProgress = false;
+        workspace.classList.add('hidden');
+        hintSec.classList.add('hidden');
+        examSetup.classList.remove('hidden');
+        banner.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">📝</span>
+            <div>
+              <h2 class="font-display font-extrabold text-base text-[#6D28D9]">Chế Độ Kiểm Tra Thực Hành (Exam Mode)</h2>
+              <p class="text-xs text-[#7C5D43]">Mô phỏng kỳ thi chính thức • Chấm điểm thang 100.</p>
+            </div>
+          </div>
+        `;
+      }
+
+      renderShelfCategories();
+      renderIngredientShelf();
+      renderActionButtons();
+    }
+
+    // Rush Hour Controls
+    function renderRushBanner() {
+      const banner = document.getElementById('station-banner');
+      const mins = Math.floor(rushTimeLeft / 60);
+      const secs = rushTimeLeft % 60;
+      const timeStr = rushTimeLimit === 0 ? '∞ Không giới hạn' : `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+      banner.innerHTML = `
+        <div class="flex items-center gap-3 flex-wrap">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <h2 class="font-display font-extrabold text-base text-[#B45309]">Giờ Cao Điểm (Rush Hour)</h2>
+              <p class="text-xs text-[#7C5D43]">Pha đúng liên tiếp để nhân điểm Combo!</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 bg-[#FAF3E8] px-3 py-1.5 rounded-2xl border border-[#E6D5C3]">
+            <span class="text-xs font-bold text-[#7C5D43]">Thời gian:</span>
+            <select onchange="changeRushDuration(this.value)" class="bg-white rounded-xl px-2 py-1 text-xs font-extrabold border border-[#D7B89C]">
+              <option value="180" ${rushTimeLimit === 180 ? 'selected' : ''}>3 phút</option>
+              <option value="300" ${rushTimeLimit === 300 ? 'selected' : ''}>5 phút</option>
+              <option value="600" ${rushTimeLimit === 600 ? 'selected' : ''}>10 phút</option>
+              <option value="0" ${rushTimeLimit === 0 ? 'selected' : ''}>Tắt đếm ngược</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="px-3 py-1.5 rounded-2xl bg-[#FEF3C7] border border-[#FCD34D] text-center">
+            <div class="text-[10px] font-bold uppercase text-[#92400E]">Đồng hồ</div>
+            <div id="rush-timer-display" class="font-display font-extrabold text-sm sm:text-base text-[#B45309]">${timeStr}</div>
+          </div>
+          <div class="px-3 py-1.5 rounded-2xl bg-[#FDE8E8] border border-[#FBCFE8] text-center">
+            <div class="text-[10px] font-bold uppercase text-[#9D174D]">Combo</div>
+            <div class="font-display font-extrabold text-sm sm:text-base text-[#BE185D]">🔥 x${rushCombo}</div>
+          </div>
+          <div class="px-3 py-1.5 rounded-2xl bg-[#DCFCE7] border border-[#86EFAC] text-center">
+            <div class="text-[10px] font-bold uppercase text-[#166534]">Điểm ca</div>
+            <div class="font-display font-extrabold text-sm sm:text-base text-[#15803D]">${rushScore}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function changeRushDuration(val) {
+      rushTimeLimit = parseInt(val, 10);
+      rushTimeLeft = rushTimeLimit;
+      stopRushTimer();
+      renderRushBanner();
+      if (rushTimeLimit > 0) startRushTimer();
+    }
+
+    function startRushTimer() {
+      stopRushTimer();
+      if (rushTimeLimit === 0) return;
+      rushTimerInterval = setInterval(() => {
+        if (!rushActive) return;
+        rushTimeLeft--;
+        const el = document.getElementById('rush-timer-display');
+        if (el) {
+          const mins = Math.floor(Math.max(0, rushTimeLeft) / 60);
+          const secs = Math.max(0, rushTimeLeft) % 60;
+          el.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+        if (rushTimeLeft <= 0) {
+          stopRushTimer();
+          rushActive = false;
+          playSound('success');
+          showToast(`⏰ Hết giờ cao điểm! Tổng điểm ca làm: ${rushScore} điểm!`);
+          rushTimeLeft = rushTimeLimit;
+          rushActive = true;
+          renderRushBanner();
+          startRushTimer();
+        }
+      }, 1000);
+    }
+
+    function stopRushTimer() {
+      if (rushTimerInterval) {
+        clearInterval(rushTimerInterval);
+        rushTimerInterval = null;
+      }
+    }
+
+    // Smart Order Selection (Prioritizes Weak & Unpracticed Drinks!)
+    function pickNextSmartOrder() {
+      if (weakDrillQueue.length > 0) {
+        const nextId = weakDrillQueue.shift();
+        const found = RECIPES.find(r => r.id === nextId);
+        if (found) {
+          loadOrder(found);
+          return;
+        }
+      }
+
+      // Weighted pool: weak drinks weight 5, unlearned weight 3, learning weight 2, mastered weight 1
+      const pool = [];
+      for (const r of RECIPES) {
+        const st = getDrinkStat(r.id);
+        let weight = 1;
+        if (st.status === 'review' || (st.lastScore !== null && st.lastScore < 80)) weight = 5;
+        else if (st.status === 'unlearned') weight = 3;
+        else if (st.status === 'learning') weight = 2;
+        for (let i = 0; i < weight; i++) pool.push(r);
+      }
+      let chosen = pool[Math.floor(Math.random() * pool.length)];
+      if (currentOrder && pool.length > 1 && chosen.id === currentOrder.id) {
+        chosen = pool[Math.floor(Math.random() * pool.length)];
+      }
+      loadOrder(chosen);
+    }
+
+    function loadOrder(recipe) {
+      currentOrder = recipe;
+      currentCustomer = CUSTOMERS[Math.floor(Math.random() * CUSTOMERS.length)];
+      clearCurrentDrink(false);
+
+      document.getElementById('customer-avatar').textContent = currentCustomer.avatar;
+      document.getElementById('customer-name').textContent = currentCustomer.name;
+      document.getElementById('order-cat-badge').textContent = recipe.category;
+      document.getElementById('order-drink-name').textContent = `${recipe.name}`;
+      document.getElementById('order-drink-sub').textContent = `${recipe.variant} • ${recipe.glass}`;
+    }
+
+    // Progressive Hint System
+    function requestHint() {
+      if (!currentOrder || currentMode === 'exam') return;
+      if (currentHintLevel < 3) currentHintLevel++;
+      playSound('pop');
+      document.getElementById('hint-level-label').textContent = `${currentHintLevel}/3`;
+      const box = document.getElementById('hint-display');
+      box.classList.remove('hidden');
+
+      let html = '';
+      if (currentHintLevel >= 1) {
+        html += `<div><strong>Mức 1 (Tổng quan):</strong> Món này cần <strong>${currentOrder.ingredients.length} nguyên liệu</strong>, phục vụ bằng <em>${currentOrder.glass}</em>.</div>`;
+      }
+      if (currentHintLevel >= 2) {
+        const names = currentOrder.ingredients.map(i => i.name).join(', ');
+        html += `<div class="pt-1 border-t border-[#FDE68A]"><strong>Mức 2 (Tên nguyên liệu):</strong> ${names}.</div>`;
+      }
+      if (currentHintLevel >= 3) {
+        const full = currentOrder.ingredients.map(i => `${i.name} (${i.amount} ${i.unit})`).join(', ');
+        const acts = currentOrder.requiredActions.map(aId => BARISTA_ACTIONS.find(a => a.id === aId)?.label).filter(Boolean).join(' ➔ ');
+        html += `<div class="pt-1 border-t border-[#FDE68A]"><strong>Mức 3 (Định lượng & Thao tác):</strong> ${full}.<br/><em>Thao tác:</em> ${acts || 'Không yêu cầu dụng cụ đặc biệt'}.</div>`;
+      }
+      box.innerHTML = html;
+    }
+
+    /* =========================================================================
+       9. INGREDIENT SHELF & WORKSPACE INTERACTIONS
+       ========================================================================= */
+    function renderShelfCategories() {
+      const cats = ['Tất cả', 'Cà phê & Bột', 'Sữa & Kem', 'Trà & Nước', 'Đường & Mứt', 'Topping & Trái cây', 'Đá & Khác'];
+      const el = document.getElementById('shelf-cats');
+      el.innerHTML = cats.map(c => {
+        const active = selectedShelfCategory === c;
+        return `<button onclick="selectShelfCategory('${c}')" class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-extrabold border ${
+          active ? 'bg-[#4A3222] text-white border-[#4A3222]' : 'bg-[#FAF3E8] text-[#6E5038] border-[#E6D5C3]'
+        }">${c}</button>`;
+      }).join('');
+    }
+
+    function selectShelfCategory(cat) {
+      selectedShelfCategory = cat;
+      renderShelfCategories();
+      renderIngredientShelf();
+    }
+
+    function renderIngredientShelf() {
+      const q = normalizeName(document.getElementById('shelf-search').value || '');
+      const items = SHELF_ITEMS.filter(item => {
+        if (selectedShelfCategory !== 'Tất cả' && item.cat !== selectedShelfCategory) return false;
+        if (q && !normalizeName(item.name).includes(q)) return false;
+        return true;
+      });
+
+      const grid = document.getElementById('ingredient-shelf-grid');
+      grid.innerHTML = items.map(item => `
+        <button onclick="addIngredientFromShelf('${item.name}')" class="btn-pastel text-left p-2.5 rounded-2xl bg-[#FFFDF9] hover:bg-[#FFF7ED] border border-[#E6D5C3] flex items-center gap-2 transition-all">
+          <span class="text-xl shrink-0">${item.icon}</span>
+          <div class="min-w-0">
+            <div class="text-xs font-extrabold text-[#4A3222] truncate">${item.name}</div>
+            <div class="text-[10px] font-bold text-[#8C6D53]">Đơn vị: ${item.defaultUnit}</div>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function addIngredientFromShelf(name) {
+      const meta = SHELF_ITEMS.find(i => i.name === name) || { name, icon: '🧪', defaultUnit: 'ml', presets: [10], color: '#D7B89C' };
+      const existing = selectedIngredients.find(i => normalizeName(i.name) === normalizeName(name));
+      playSound('pop');
+
+      if (existing) {
+        // Increment to next preset or add default amount
+        const nextPreset = meta.presets.find(p => p > existing.amount);
+        existing.amount = nextPreset !== undefined ? nextPreset : existing.amount + (meta.presets[0] || 10);
+      } else {
+        selectedIngredients.push({
+          name: meta.name,
+          amount: meta.presets[0] || 10,
+          unit: meta.defaultUnit,
+          color: meta.color,
+          icon: meta.icon,
+          presets: meta.presets
+        });
+      }
+
+      renderSelectedIngredients();
+      updateCupVisual();
+    }
+
+    function updateIngredientAmount(idx, val) {
+      const num = parseFloat(val);
+      if (!isNaN(num) && num >= 0) {
+        selectedIngredients[idx].amount = num;
+      }
+    }
+
+    function setIngredientPreset(idx, val) {
+      selectedIngredients[idx].amount = val;
+      playSound('pop');
+      renderSelectedIngredients();
+    }
+
+    function updateIngredientUnit(idx, unit) {
+      selectedIngredients[idx].unit = unit;
+      playSound('pop');
+    }
+
+    function removeSelectedIngredient(idx) {
+      selectedIngredients.splice(idx, 1);
+      playSound('pop');
+      renderSelectedIngredients();
+      updateCupVisual();
+    }
+
+    function renderSelectedIngredients() {
+      document.getElementById('selected-ing-count').textContent = selectedIngredients.length;
+      const listEl = document.getElementById('selected-ingredients-list');
+
+      if (selectedIngredients.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-6 px-3 rounded-2xl bg-[#FAF3E8]/70 border border-dashed border-[#D7B89C] text-xs text-[#8C6D53]">
+            Chưa có nguyên liệu nào. Hãy chọn nguyên liệu trên kệ và nhập đúng định lượng!
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = selectedIngredients.map((item, idx) => `
+        <div class="p-2.5 rounded-2xl bg-[#FAF3E8] border border-[#E6D5C3] space-y-2 animate-pop">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 font-extrabold text-xs sm:text-sm text-[#4A3222]">
+              <span>${item.icon}</span>
+              <span>${idx + 1}. ${item.name}</span>
+            </div>
+            <button onclick="removeSelectedIngredient(${idx})" class="text-xs font-bold text-[#DC2626] hover:bg-red-100 px-2 py-0.5 rounded-lg">✕</button>
+          </div>
+
+          <div class="flex items-center gap-1.5">
+            <input type="number" step="any" min="0" value="${item.amount}" onchange="updateIngredientAmount(${idx}, this.value)" oninput="updateIngredientAmount(${idx}, this.value)" class="w-24 px-2.5 py-1.5 rounded-xl bg-white border border-[#C68B59] text-xs sm:text-sm font-extrabold text-[#B45309] focus:outline-none" />
+            <select onchange="updateIngredientUnit(${idx}, this.value)" class="px-2 py-1.5 rounded-xl bg-white border border-[#D7B89C] text-xs font-extrabold text-[#4A3222]">
+              ${ALL_UNITS.map(u => `<option value="${u}" ${item.unit === u ? 'selected' : ''}>${u}</option>`).join('')}
+            </select>
+            <div class="flex items-center gap-1 overflow-x-auto">
+              ${(item.presets || []).map(p => `
+                <button onclick="setIngredientPreset(${idx}, ${p})" class="px-2 py-1 rounded-lg bg-white hover:bg-[#FEF3C7] border border-[#E6D5C3] text-[11px] font-extrabold text-[#6E5038]">${p}</button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Barista Actions Sequence
+    function renderActionButtons() {
+      const grid = document.getElementById('action-buttons-grid');
+      grid.innerHTML = BARISTA_ACTIONS.map(act => `
+        <button onclick="triggerBaristaAction('${act.id}')" class="btn-pastel px-2.5 py-2 rounded-xl bg-[#FAF3E8] hover:bg-[#FEF3C7] border border-[#E6D5C3] text-left flex items-center gap-1.5 text-[11px] font-extrabold text-[#4A3222]">
+          <span class="text-sm">${act.icon}</span>
+          <span class="truncate">${act.label}</span>
+        </button>
+      `).join('');
+    }
+
+    function triggerBaristaAction(actionId) {
+      const act = BARISTA_ACTIONS.find(a => a.id === actionId);
+      if (!act) return;
+      selectedActions.push(actionId);
+      playSound('action');
+
+      // Visual Cup Animation
+      const cupBox = document.getElementById('cup-visual-container');
+      cupBox.classList.remove('animate-shake-cup', 'animate-swirl', 'animate-blend', 'animate-pop');
+      void cupBox.offsetWidth;
+      cupBox.classList.add(act.anim);
+
+      renderSelectedSteps();
+      updateCupVisual();
+    }
+
+    function removeSelectedStep(idx) {
+      selectedActions.splice(idx, 1);
+      playSound('pop');
+      renderSelectedSteps();
+    }
+
+    function clearStepsOnly() {
+      selectedActions = [];
+      renderSelectedSteps();
+    }
+
+    function renderSelectedSteps() {
+      document.getElementById('selected-step-count').textContent = selectedActions.length;
+      const el = document.getElementById('selected-steps-list');
+      if (selectedActions.length === 0) {
+        el.innerHTML = `<p class="text-xs text-[#8C6D53] italic">Bấm các nút thao tác dưới ly nước theo trình tự pha chế.</p>`;
+        return;
+      }
+      el.innerHTML = selectedActions.map((aId, idx) => {
+        const act = BARISTA_ACTIONS.find(a => a.id === aId);
+        return `
+          <div class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-[#E0F2FE]/60 border border-[#BAE6FD] text-xs font-extrabold text-[#0369A1]">
+            <span>Bước ${idx + 1}: ${act ? act.icon + ' ' + act.label : aId}</span>
+            <button onclick="removeSelectedStep(${idx})" class="text-[#DC2626] hover:underline ml-2">✕</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function clearCurrentDrink(withSound = true) {
+      selectedIngredients = [];
+      selectedActions = [];
+      currentHintLevel = 0;
+      document.getElementById('hint-level-label').textContent = '0/3';
+      const hintBox = document.getElementById('hint-display');
+      hintBox.classList.add('hidden');
+      hintBox.innerHTML = '';
+      if (withSound) playSound('pop');
+      renderSelectedIngredients();
+      renderSelectedSteps();
+      updateCupVisual();
+    }
+
+    // Dynamic SVG Cup Layer Renderer
+    function updateCupVisual() {
+      const svgLayers = document.getElementById('svg-liquid-layers');
+      const statusBadge = document.getElementById('cup-status-badge');
+
+      if (selectedIngredients.length === 0) {
+        svgLayers.innerHTML = '';
+        statusBadge.textContent = 'Ly trống';
+        return;
+      }
+
+      statusBadge.textContent = `${selectedIngredients.length} thành phần • ${selectedActions.length} bước`;
+      const maxHeight = 118;
+      const layerHeight = Math.min(28, maxHeight / selectedIngredients.length);
+      let currentY = 166;
+
+      let svgHTML = '';
+      selectedIngredients.forEach((ing) => {
+        currentY -= layerHeight;
+        svgHTML += `<rect x="30" y="${currentY}" width="100" height="${layerHeight + 2}" fill="${ing.color || '#C68B59'}" opacity="0.88" />`;
+      });
+
+      // Add ice cubes visual if ice added
+      if (selectedIngredients.some(i => normalizeName(i.name).includes('đá')) || selectedActions.includes('add_ice')) {
+        svgHTML += `
+          <rect x="55" y="65" width="16" height="16" rx="4" transform="rotate(15 55 65)" fill="rgba(255,255,255,0.75)" stroke="#BAE6FD" stroke-width="1.5"/>
+          <rect x="82" y="72" width="16" height="16" rx="4" transform="rotate(-12 82 72)" fill="rgba(255,255,255,0.75)" stroke="#BAE6FD" stroke-width="1.5"/>
+        `;
+      }
+
+      // Add foam top if machiato / kem / foam
+      if (selectedIngredients.some(i => ['machiato', 'kem muối', 'kem phô mai', 'bông kem'].includes(normalizeName(i.name))) || selectedActions.includes('steam_milk')) {
+        svgHTML += `<rect x="30" y="${Math.max(44, currentY - 12)}" width="100" height="14" fill="#FFFDF9" opacity="0.95" />`;
+      }
+
+      svgLayers.innerHTML = svgHTML;
+    }
+
+    /* =========================================================================
+       10. ACCURATE FORMULA GRADING ENGINE (RULE 5)
+       ========================================================================= */
+    function gradeSubmission(recipe, userIngs, userActs) {
+      const targetIngs = recipe.ingredients;
+      const targetActs = recipe.requiredActions || [];
+
+      // Weight allocation:
+      // Default: 40% Ingredients, 40% Quantities & Units, 20% Process/Order.
+      // If a drink has NO process steps (e.g., bottled drinks), redistribute 20% to 50% Ing + 50% Qty.
+      const hasProcess = targetActs.length > 0 || recipe.strictOrder;
+      const wIng = hasProcess ? 40 : 50;
+      const wQty = hasProcess ? 40 : 50;
+      const wProc = hasProcess ? 20 : 0;
+
+      const matchedTargetIndices = new Set();
+      const matchedUserIndices = new Set();
+
+      const details = []; // Detailed breakdown per ingredient
+      let correctIngCount = 0;
+      let exactQtyCount = 0;
+
+      // 1. Match each required ingredient against user's ingredients
+      targetIngs.forEach((tIng, tIdx) => {
+        const uIdx = userIngs.findIndex((uIng, idx) => !matchedUserIndices.has(idx) && areIngredientsEquivalent(tIng.name, uIng.name));
+        if (uIdx !== -1) {
+          matchedTargetIndices.add(tIdx);
+          matchedUserIndices.add(uIdx);
+          correctIngCount++;
+
+          const uIng = userIngs[uIdx];
+          const amountMatch = Math.abs(Number(uIng.amount) - Number(tIng.amount)) < 0.01;
+          const unitMatch = normalizeName(uIng.unit) === normalizeName(tIng.unit);
+
+          if (amountMatch && unitMatch) {
+            exactQtyCount++;
+            details.push({
+              type: 'perfect',
+              name: tIng.name,
+              expected: `${tIng.amount} ${tIng.unit}`,
+              actual: `${uIng.amount} ${uIng.unit}`,
+              msg: 'Chính xác nguyên liệu & định lượng'
+            });
+          } else {
+            details.push({
+              type: 'wrong_qty',
+              name: tIng.name,
+              expected: `${tIng.amount} ${tIng.unit}`,
+              actual: `${uIng.amount} ${uIng.unit}`,
+              msg: !unitMatch
+                ? `Sai đơn vị đo (Bạn chọn "${uIng.unit}", chuẩn là "${tIng.unit}")`
+                : `Sai định lượng (Bạn đong ${uIng.amount} ${uIng.unit}, chuẩn là ${tIng.amount} ${tIng.unit})`
+            });
+          }
+        } else {
+          details.push({
+            type: 'missing',
+            name: tIng.name,
+            expected: `${tIng.amount} ${tIng.unit}`,
+            actual: 'Thiếu',
+            msg: `Thiếu nguyên liệu: ${tIng.name} (${tIng.amount} ${tIng.unit})`
+          });
+        }
+      });
+
+      // 2. Check extra (wrong) ingredients added by player
+      const extraIngs = [];
+      userIngs.forEach((uIng, uIdx) => {
+        if (!matchedUserIndices.has(uIdx)) {
+          extraIngs.push(uIng);
+          details.push({
+            type: 'extra',
+            name: uIng.name,
+            expected: 'Không có trong công thức',
+            actual: `${uIng.amount} ${uIng.unit}`,
+            msg: `Thừa nguyên liệu: ${uIng.name} (${uIng.amount} ${uIng.unit})`
+          });
+        }
+      });
+
+      // Score Part 1: Ingredients (wIng)
+      const totalReq = Math.max(1, targetIngs.length);
+      const rawIngRatio = Math.max(0, (correctIngCount - extraIngs.length * 0.5) / totalReq);
+      const scoreIng = Math.round(rawIngRatio * wIng * 10) / 10;
+
+      // Score Part 2: Quantities (wQty)
+      const rawQtyRatio = exactQtyCount / totalReq;
+      const scoreQty = Math.round(rawQtyRatio * wQty * 10) / 10;
+
+      // Score Part 3: Process & Order (wProc)
+      let scoreProc = wProc;
+      const processFeedback = [];
+
+      if (hasProcess) {
+        let procPoints = wProc;
+        // Check required tool/process actions
+        if (targetActs.length > 0) {
+          const missingActs = targetActs.filter(reqA => !userActs.includes(reqA));
+          if (missingActs.length > 0) {
+            const penalty = (missingActs.length / targetActs.length) * (wProc * 0.6);
+            procPoints -= penalty;
+            const labels = missingActs.map(id => BARISTA_ACTIONS.find(a => a.id === id)?.label || id).join(', ');
+            processFeedback.push(`Thiếu thao tác quy trình: ${labels}`);
+          } else {
+            processFeedback.push('Đầy đủ thao tác dụng cụ pha chế');
+          }
+        }
+
+        // Check ingredient order ONLY if recipe.strictOrder === true!
+        if (recipe.strictOrder) {
+          // Verify relative order of matched ingredients
+          const matchedOrderPairs = [];
+          userIngs.forEach((uIng, uIdx) => {
+            const tIdx = targetIngs.findIndex(t => areIngredientsEquivalent(t.name, uIng.name));
+            if (tIdx !== -1) matchedOrderPairs.push(tIdx);
+          });
+          let outOfOrder = false;
+          for (let i = 1; i < matchedOrderPairs.length; i++) {
+            if (matchedOrderPairs[i] < matchedOrderPairs[i - 1]) {
+              outOfOrder = true;
+              break;
+            }
+          }
+          if (outOfOrder && matchedOrderPairs.length >= 2) {
+            procPoints -= wProc * 0.4;
+            processFeedback.push('Sai thứ tự cho nguyên liệu (Món này yêu cầu phân tầng / thứ tự chuẩn)');
+          } else if (matchedOrderPairs.length >= 2) {
+            processFeedback.push('Đúng thứ tự phân tầng / cho nguyên liệu');
+          }
+        } else {
+          processFeedback.push('Món này không bắt buộc thứ tự cho nguyên liệu (Không trừ điểm thứ tự)');
+        }
+
+        scoreProc = Math.max(0, Math.round(procPoints * 10) / 10);
+      }
+
+      const totalScore = Math.min(100, Math.max(0, Math.round(scoreIng + scoreQty + scoreProc)));
+
+      return {
+        totalScore,
+        scoreIng,
+        scoreQty,
+        scoreProc,
+        wIng,
+        wQty,
+        wProc,
+        details,
+        processFeedback,
+        passed: totalScore >= 80
+      };
+    }
+
+    function recordGradingTelemetry(recipe, result) {
+      userState.totalAttempts++;
+      if (result.passed) userState.correctAttempts++;
+      if (result.totalScore === 100) userState.perfectCount++;
+
+      const st = getDrinkStat(recipe.id);
+      st.attempts++;
+      st.lastScore = result.totalScore;
+      if (result.passed) {
+        st.correct++;
+        if (st.correct >= 2 || result.totalScore === 100) {
+          st.status = 'mastered';
+          st.manualReview = false;
+        } else if (st.status !== 'mastered') {
+          st.status = 'learning';
+        }
+      } else {
+        st.status = 'review';
+      }
+
+      // Track missed ingredients & wrong quantities for Mode 5 (Weak Spot Trainer)
+      for (const d of result.details) {
+        if (d.type === 'missing') {
+          userState.missedIngredients[d.name] = (userState.missedIngredients[d.name] || 0) + 1;
+        } else if (d.type === 'wrong_qty') {
+          const key = `${recipe.name}: ${d.name} (Chuẩn: ${d.expected})`;
+          userState.wrongQuantities[key] = (userState.wrongQuantities[key] || 0) + 1;
+        }
+      }
+
+      saveState();
+    }
+
+    /* =========================================================================
+       11. SUBMIT HANDLER (PRACTICE, RUSH HOUR, EXAM MODE)
+       ========================================================================= */
+    function submitCurrentDrink() {
+      if (!currentOrder) return;
+      if (selectedIngredients.length === 0) {
+        playSound('error');
+        showToast('⚠️ Bạn chưa chọn nguyên liệu nào vào ly!');
+        return;
+      }
+
+      const result = gradeSubmission(currentOrder, selectedIngredients, selectedActions);
+      recordGradingTelemetry(currentOrder, result);
+
+      // EXAM MODE: Do NOT reveal right/wrong until exam ends!
+      if (currentMode === 'exam' && examInProgress) {
+        playSound('pop');
+        examSubmissions.push({
+          recipe: currentOrder,
+          userIngredients: JSON.parse(JSON.stringify(selectedIngredients)),
+          userActions: [...selectedActions],
+          result
+        });
+
+        examCurrentIndex++;
+        if (examCurrentIndex < examQueue.length) {
+          updateExamBanner();
+          loadOrder(examQueue[examCurrentIndex]);
+          showToast(`✅ Đã lưu bài làm câu ${examCurrentIndex}/${examQueue.length}`);
+        } else {
+          finishExam();
+        }
+        return;
+      }
+
+      // PRACTICE & RUSH HOUR: Show immediate detailed feedback modal
+      if (result.passed) {
+        playSound('success');
+        if (currentMode === 'rush') {
+          rushCombo++;
+          if (rushCombo > userState.bestCombo) userState.bestCombo = rushCombo;
+          const mult = rushCombo >= 5 ? 2 : (rushCombo >= 3 ? 1.5 : 1);
+          const pts = Math.round(result.totalScore * mult);
+          rushScore += pts;
+          renderRushBanner();
+          addXP(20);
+        } else {
+          addXP(result.totalScore === 100 ? 25 : 15);
+        }
+      } else {
+        playSound('error');
+        if (currentMode === 'rush') {
+          rushCombo = 0;
+          renderRushBanner();
+        }
+        addXP(5);
+      }
+
+      showFeedbackModal(currentOrder, result);
+    }
+
+    function showFeedbackModal(recipe, result) {
+      const box = document.getElementById('feedback-content');
+      const headerBg = result.totalScore === 100
+        ? 'from-[#DCFCE7] to-[#D1FAE5] border-[#6EE7B7] text-[#065F46]'
+        : (result.passed
+          ? 'from-[#E0F2FE] to-[#DBEAFE] border-[#93C5FD] text-[#1E40AF]'
+          : 'from-[#FEE2E2] to-[#FFEDD5] border-[#FCA5A5] text-[#991B1B]');
+
+      box.innerHTML = `
+        <div class="rounded-2xl p-4 bg-gradient-to-r ${headerBg} border-2 flex items-center justify-between gap-3">
+          <div>
+            <div class="text-xs font-extrabold uppercase opacity-80">${recipe.name} (${recipe.variant})</div>
+            <h3 class="font-display font-extrabold text-xl sm:text-2xl mt-0.5">
+              ${result.totalScore === 100 ? '🎉 Xuất Sắc Tuyệt Đối!' : (result.passed ? '👍 Đạt Yêu Cầu Pha Chế!' : '😅 Chưa Chuẩn Công Thức!')}
+            </h3>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="font-display font-black text-3xl">${result.totalScore}<span class="text-base font-bold">/100</span></div>
+            <div class="text-[11px] font-bold">NL: ${result.scoreIng}/${result.wIng} • ĐL: ${result.scoreQty}/${result.wQty} • QT: ${result.scoreProc}/${result.wProc}</div>
+          </div>
+        </div>
+
+        <!-- Detailed Comparison -->
+        <div class="space-y-2 mt-4">
+          <h4 class="font-display font-extrabold text-sm uppercase text-[#7C4A27]">🔍 Phân tích chi tiết từng thành phần:</h4>
+          ${result.details.map(d => {
+            const badge = d.type === 'perfect'
+              ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
+              : (d.type === 'wrong_qty'
+                ? 'bg-amber-50 border-amber-200 text-amber-900'
+                : 'bg-red-50 border-red-200 text-red-800');
+            const icon = d.type === 'perfect' ? '✅' : (d.type === 'wrong_qty' ? '⚖️' : (d.type === 'missing' ? '❌' : '➕'));
+            return `
+              <div class="p-2.5 rounded-xl border ${badge} text-xs flex flex-wrap items-center justify-between gap-2">
+                <div class="font-extrabold">${icon} ${d.msg}</div>
+                <div class="font-bold opacity-85">Bạn làm: ${d.actual} | Chuẩn: ${d.expected}</div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Process Feedback -->
+        <div class="bg-[#FAF3E8] p-3 rounded-2xl border border-[#E6D5C3] text-xs space-y-1 mt-3">
+          <div class="font-extrabold text-[#4A3222]">⚙️ Đánh giá quy trình & thứ tự:</div>
+          ${result.processFeedback.map(p => `<div class="text-[#6E5038]">• ${p}</div>`).join('')}
+        </div>
+
+        <!-- Standard Recipe Reference -->
+        <div class="bg-[#FFFDF9] p-3.5 rounded-2xl border-2 border-[#E6D5C3] text-xs space-y-2 mt-3">
+          <div class="font-extrabold text-[#7C4A27] uppercase">📖 Công thức chuẩn Kofi Kai để đối chiếu:</div>
+          <div class="flex flex-wrap gap-1.5">
+            ${recipe.ingredients.map(i => `<span class="px-2.5 py-1 rounded-xl bg-[#FEF3C7] text-[#92400E] font-extrabold">${i.name}: ${i.amount} ${i.unit}</span>`).join('')}
+          </div>
+          <ol class="list-decimal pl-4 space-y-0.5 text-[#4A3222] font-semibold">
+            ${recipe.steps.map(s => `<li>${s}</li>`).join('')}
+          </ol>
+        </div>
+      `;
+
+      openModal('modal-feedback');
+    }
+
+    function retrySameDrink() {
+      closeModal('modal-feedback');
+      clearCurrentDrink();
+    }
+
+    function closeFeedbackAndNext() {
+      closeModal('modal-feedback');
+      pickNextSmartOrder();
+    }
+
+    /* =========================================================================
+       12. MODE 4: KIỂM TRA THỰC HÀNH (EXAM MODE)
+       ========================================================================= */
+    function startExam() {
+      const countVal = document.getElementById('exam-count').value;
+      const catVal = document.getElementById('exam-category').value;
+
+      let pool = catVal === 'all' ? [...RECIPES] : RECIPES.filter(r => r.category === catVal);
+      pool.sort(() => Math.random() - 0.5);
+
+      const totalCount = countVal === 'all' ? pool.length : Math.min(parseInt(countVal, 10), pool.length);
+      examQueue = pool.slice(0, totalCount);
+      examCurrentIndex = 0;
+      examSubmissions = [];
+      examInProgress = true;
+
+      document.getElementById('exam-setup-panel').classList.add('hidden');
+      document.getElementById('exam-report-panel').classList.add('hidden');
+      document.getElementById('barista-workspace').classList.remove('hidden');
+      document.getElementById('hint-section').classList.add('hidden'); // Strict: No hints in exam
+      document.getElementById('btn-submit-label').textContent = 'Nộp Món & Sang Câu Tiếp Theo';
+
+      updateExamBanner();
+      loadOrder(examQueue[0]);
+      playSound('action');
+    }
+
+    function updateExamBanner() {
+      const banner = document.getElementById('station-banner');
+      const pct = Math.round(((examCurrentIndex) / examQueue.length) * 100);
+      banner.innerHTML = `
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">📝</span>
+          <div>
+            <h2 class="font-display font-extrabold text-base text-[#6D28D9]">Đang Thi Thực Hành — Câu ${examCurrentIndex + 1} / ${examQueue.length}</h2>
+            <p class="text-xs text-[#7C5D43]">Không gợi ý • Không hiển thị đáp án cho đến khi nộp toàn bộ bài thi.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-32 sm:w-44 h-2.5 bg-[#EDE9FE] rounded-full overflow-hidden">
+            <div class="h-full bg-[#7C3AED] transition-all" style="width: ${pct}%"></div>
+          </div>
+          <button onclick="finishExamEarly()" class="btn-pastel px-3 py-1.5 rounded-xl bg-[#FEE2E2] text-[#991B1B] text-xs font-extrabold">
+            Nộp bài sớm
+          </button>
+        </div>
+      `;
+    }
+
+    function finishExamEarly() {
+      // Grade remaining unanswered questions as 0
+      while (examCurrentIndex < examQueue.length) {
+        const r = examQueue[examCurrentIndex];
+        const res = gradeSubmission(r, [], []);
+        examSubmissions.push({ recipe: r, userIngredients: [], userActions: [], result: res });
+        examCurrentIndex++;
+      }
+      finishExam();
+    }
+
+    function finishExam() {
+      examInProgress = false;
+      document.getElementById('barista-workspace').classList.add('hidden');
+      const reportEl = document.getElementById('exam-report-panel');
+      reportEl.classList.remove('hidden');
+
+      const avgScore = Math.round(examSubmissions.reduce((acc, s) => acc + s.result.totalScore, 0) / Math.max(1, examSubmissions.length));
+      userState.lastExamScore = avgScore;
+      addXP(avgScore >= 80 ? 100 : 40);
+      playSound(avgScore >= 80 ? 'success' : 'error');
+
+      const gradeLabel = avgScore >= 90
+        ? { title: 'XUẤT SẮC (Sẵn sàng 100% cho kỳ thi ngày mai!)', cls: 'text-emerald-700 bg-emerald-50 border-emerald-300' }
+        : (avgScore >= 80
+          ? { title: 'ĐẠT YÊU CẦU (Tự tin đi thi!)', cls: 'text-sky-700 bg-sky-50 border-sky-300' }
+          : { title: 'CẦN ÔN THÊM (Hãy luyện lại các câu sai bên dưới nhé!)', cls: 'text-red-700 bg-red-50 border-red-300' });
+
+      reportEl.innerHTML = `
+        <div class="text-center space-y-2 border-b border-[#EFE2D3] pb-5">
+          <div class="inline-block px-4 py-1.5 rounded-full border text-xs font-extrabold ${gradeLabel.cls}">
+            ${gradeLabel.title}
+          </div>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-[#4A3222]">Kết Quả Bài Kiểm Tra Thực Hành</h2>
+          <div class="font-display font-black text-5xl text-[#7C3AED] py-1">${avgScore}<span class="text-xl text-[#8C6D53]">/100 điểm</span></div>
+          <p class="text-xs text-[#7C5D43]">Số câu đạt chuẩn (>=80đ): <strong>${examSubmissions.filter(s => s.result.passed).length}/${examSubmissions.length}</strong> món</p>
+        </div>
+
+        <div class="space-y-3 max-h-[55vh] overflow-y-auto pr-1">
+          ${examSubmissions.map((sub, idx) => `
+            <div class="p-4 rounded-2xl border-2 ${sub.result.passed ? 'border-emerald-200 bg-emerald-50/40' : 'border-red-200 bg-red-50/40'} space-y-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="font-extrabold text-sm sm:text-base text-[#4A3222]">
+                  Câu ${idx + 1}: ${sub.recipe.icon} ${sub.recipe.name} <span class="text-xs font-bold text-[#8C6D53]">(${sub.recipe.variant})</span>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-black ${sub.result.passed ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}">
+                  ${sub.result.totalScore}/100 điểm
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="bg-white p-2.5 rounded-xl border border-[#EFE2D3]">
+                  <div class="font-extrabold text-[#8C6D53] mb-1">Bài làm của bạn:</div>
+                  ${sub.userIngredients.length > 0
+                    ? sub.userIngredients.map(i => `<div>• ${i.name}: <strong>${i.amount} ${i.unit}</strong></div>`).join('')
+                    : '<div class="italic text-red-500">Chưa chọn nguyên liệu</div>'}
+                </div>
+                <div class="bg-white p-2.5 rounded-xl border border-[#C68B59]">
+                  <div class="font-extrabold text-[#7C4A27] mb-1">Đáp án chuẩn Kofi Kai:</div>
+                  ${sub.recipe.ingredients.map(i => `<div>• ${i.name}: <strong class="text-emerald-700">${i.amount} ${i.unit}</strong></div>`).join('')}
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-3 border-t border-[#EFE2D3]">
+          <button onclick="switchMode('exam')" class="btn-pastel px-5 py-3 rounded-2xl bg-[#7C3AED] text-white font-extrabold text-sm">
+            🔄 Làm Đề Thi Mới
+          </button>
+          <button onclick="startWeakDrill()" class="btn-pastel px-5 py-3 rounded-2xl bg-[#EA580C] text-white font-extrabold text-sm">
+            🎯 Luyện Lại Các Món Sai
+          </button>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       13. MODE 5: ÔN TẬP ĐIỂM YẾU (WEAK SPOT TRAINER)
+       ========================================================================= */
+    function renderWeakView() {
+      const weakDrinks = RECIPES.filter(r => {
+        const st = getDrinkStat(r.id);
+        return st.status === 'review' || (st.lastScore !== null && st.lastScore < 80);
+      });
+
+      const unpracticed = RECIPES.filter(r => getDrinkStat(r.id).attempts === 0);
+
+      document.getElementById('weak-drinks-count').textContent = weakDrinks.length;
+      document.getElementById('unpracticed-count').textContent = unpracticed.length;
+
+      const weakListEl = document.getElementById('weak-drinks-list');
+      if (weakDrinks.length === 0) {
+        weakListEl.innerHTML = `<div class="text-center py-8 text-xs text-[#8C6D53] bg-[#FAF3E8] rounded-2xl">🎉 Tuyệt vời! Hiện không có món nào bị đánh dấu sai hoặc cần ôn.</div>`;
+      } else {
+        weakListEl.innerHTML = weakDrinks.map(r => {
+          const st = getDrinkStat(r.id);
+          return `
+            <div class="flex items-center justify-between p-2.5 rounded-2xl bg-[#FEF2F2] border border-[#FECACA]">
+              <div>
+                <div class="font-extrabold text-xs sm:text-sm text-[#991B1B]">${r.icon} ${r.name} <span class="font-normal">(${r.variant})</span></div>
+                <div class="text-[11px] text-[#7F1D1D]">Điểm gần nhất: ${st.lastScore !== null ? st.lastScore + '/100' : 'Đánh dấu cần ôn'}</div>
+              </div>
+              <button onclick="practiceSpecificRecipe('${r.id}')" class="btn-pastel px-3 py-1.5 rounded-xl bg-white text-[#B91C1C] border border-[#FCA5A5] text-xs font-extrabold">
+                Luyện ngay
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Missed Ingredients
+      const missedEntries = Object.entries(userState.missedIngredients).sort((a, b) => b[1] - a[1]);
+      const missedEl = document.getElementById('weak-ingredients-list');
+      missedEl.innerHTML = missedEntries.length === 0
+        ? `<span class="text-xs text-[#8C6D53] italic">Chưa ghi nhận nguyên liệu bị quên.</span>`
+        : missedEntries.slice(0, 12).map(([name, cnt]) => `
+            <span class="px-2.5 py-1 rounded-full bg-[#FEF3C7] border border-[#FCD34D] text-xs font-extrabold text-[#92400E]">
+              ${name} (Quên ${cnt} lần)
+            </span>
+          `).join('');
+
+      // Wrong Quantities
+      const qtyEntries = Object.entries(userState.wrongQuantities).sort((a, b) => b[1] - a[1]);
+      const qtyEl = document.getElementById('weak-quantities-list');
+      qtyEl.innerHTML = qtyEntries.length === 0
+        ? `<p class="text-xs text-[#8C6D53] italic">Chưa ghi nhận định lượng bị nhầm.</p>`
+        : qtyEntries.slice(0, 10).map(([label, cnt]) => `
+            <div class="text-xs font-bold text-[#5B21B6] bg-[#F3E8FF] px-3 py-1.5 rounded-xl">
+              • ${label} — Nhầm ${cnt} lần
+            </div>
+          `).join('');
+
+      // Unpracticed Drinks
+      const unpEl = document.getElementById('unpracticed-drinks-list');
+      unpEl.innerHTML = unpracticed.map(r => `
+        <div onclick="practiceSpecificRecipe('${r.id}')" class="cursor-pointer p-2.5 rounded-2xl bg-[#F0F9FF] hover:bg-[#E0F2FE] border border-[#BAE6FD] flex items-center justify-between gap-2">
+          <span class="text-xs font-extrabold text-[#0369A1] truncate">${r.icon} ${r.name} (${r.variant})</span>
+          <span class="text-[11px] font-bold text-[#0284C7] shrink-0">Pha ➔</span>
+        </div>
+      `).join('');
+    }
+
+    function startWeakDrill() {
+      const weakIds = RECIPES.filter(r => {
+        const st = getDrinkStat(r.id);
+        return st.status === 'review' || (st.lastScore !== null && st.lastScore < 80);
+      }).map(r => r.id);
+
+      if (weakIds.length === 0) {
+        // Fallback to unpracticed drinks
+        const unpIds = RECIPES.filter(r => getDrinkStat(r.id).attempts === 0).map(r => r.id);
+        if (unpIds.length === 0) {
+          showToast('🎉 Bạn đã luyện và thuộc hết tất cả món rồi!');
+          return;
+        }
+        weakDrillQueue = unpIds.sort(() => Math.random() - 0.5);
+        showToast(`🔥 Bắt đầu luyện ${weakDrillQueue.length} món chưa thực hành!`);
+      } else {
+        weakDrillQueue = weakIds.sort(() => Math.random() - 0.5);
+        showToast(`🔥 Bắt đầu luyện lại ${weakDrillQueue.length} món cần ôn!`);
+      }
+
+      switchMode('practice');
+    }
+
+    /* =========================================================================
+       14. DASHBOARD, ACHIEVEMENTS & MODALS
+       ========================================================================= */
+    function openModal(id) {
+      if (id === 'modal-dashboard') renderDashboardModal();
+      if (id === 'modal-achievements') renderAchievementsModal();
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function renderDashboardModal() {
+      const total = RECIPES.length;
+      const practiced = RECIPES.filter(r => getDrinkStat(r.id).attempts > 0).length;
+      const mastered = countMastered();
+      const review = RECIPES.filter(r => getDrinkStat(r.id).status === 'review').length;
+      const accuracy = userState.totalAttempts > 0
+        ? Math.round((userState.correctAttempts / userState.totalAttempts) * 100)
+        : 0;
+      const examScore = userState.lastExamScore !== null ? `${userState.lastExamScore}/100` : 'Chưa thi';
+
+      const stats = [
+        { label: 'Tổng số công thức', val: total, icon: '📋', bg: 'bg-[#FAF3E8] text-[#4A3222]' },
+        { label: 'Số món đã luyện', val: `${practiced}/${total}`, icon: '🧋', bg: 'bg-[#E0F2FE] text-[#0369A1]' },
+        { label: 'Đã thành thạo', val: mastered, icon: '🟢', bg: 'bg-[#DCFCE7] text-[#166534]' },
+        { label: 'Cần ôn tập', val: review, icon: '🟠', bg: 'bg-[#FEF3C7] text-[#92400E]' },
+        { label: 'Điểm thi gần nhất', val: examScore, icon: '📝', bg: 'bg-[#F3E8FF] text-[#6D28D9]' },
+        { label: 'Tỷ lệ chính xác', val: `${accuracy}%`, icon: '🎯', bg: 'bg-[#FDE8E8] text-[#9D174D]' }
+      ];
+
+      document.getElementById('dashboard-stats-grid').innerHTML = stats.map(s => `
+        <div class="p-3.5 rounded-2xl ${s.bg} border border-black/5">
+          <div class="text-xs font-bold opacity-80">${s.icon} ${s.label}</div>
+          <div class="font-display font-black text-2xl mt-1">${s.val}</div>
+        </div>
+      `).join('');
+
+      const cats = [...new Set(RECIPES.map(r => r.category))];
+      document.getElementById('dashboard-category-bars').innerHTML = cats.map(c => {
+        const items = RECIPES.filter(r => r.category === c);
+        const mCount = items.filter(r => getDrinkStat(r.id).status === 'mastered').length;
+        const pct = Math.round((mCount / items.length) * 100);
+        return `
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs font-extrabold">
+              <span>${c}</span>
+              <span class="text-[#7C4A27]">${mCount}/${items.length} món thuộc (${pct}%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-[#FAF3E8] rounded-full overflow-hidden border border-[#E6D5C3]">
+              <div class="h-full bg-gradient-to-r from-[#10B981] to-[#34D399] rounded-full" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAchievementsModal() {
+      document.getElementById('achievements-grid').innerHTML = ACHIEVEMENTS_DEF.map(ach => {
+        const unlocked = userState.unlockedAchievements.includes(ach.id);
+        return `
+          <div class="p-3.5 rounded-2xl border-2 flex items-center gap-3 ${
+            unlocked
+              ? 'bg-gradient-to-r from-[#FEF3C7] to-[#FFFBEB] border-[#FBBF24]'
+              : 'bg-gray-50 border-gray-200 opacity-60 grayscale'
+          }">
+            <div class="text-3xl">${ach.icon}</div>
+            <div>
+              <div class="font-extrabold text-sm text-[#4A3222]">${ach.title}</div>
+              <div class="text-xs text-[#6E5038]">${ach.desc}</div>
+              <div class="text-[10px] font-extrabold mt-1 ${unlocked ? 'text-emerald-700' : 'text-gray-500'}">
+                ${unlocked ? '✅ ĐÃ ĐẠT ĐƯỢC' : '🔒 CHƯA MỞ KHÓA'}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function confirmResetProgress() {
+      closeModal('modal-dashboard');
+      openModal('modal-confirm-reset');
+    }
+
+    function executeResetProgress() {
+      userState = getDefaultState();
+      saveState();
+      closeModal('modal-confirm-reset');
+      renderStudyView();
+      showToast('🗑️ Đã đặt lại toàn bộ dữ liệu học tập!');
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toast-box');
+      const el = document.createElement('div');
+      el.className = 'bg-[#4A3222] text-white px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold shadow-lg animate-pop';
+      el.textContent = msg;
+      box.appendChild(el);
+      setTimeout(() => {
+        el.remove();
+      }, 2800);
+    }
+
+    /* =========================================================================
+       15. INITIALIZATION ON WINDOW LOAD
+       ========================================================================= */
+    window.onload = function () {
+      updateHeaderStats();
+      switchMode('study');
+    };
+  </script>
+</body>
+</html>
